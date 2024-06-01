@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import * as H from './Styles'
 import logo from '../../assets/logo.jpg'
 import { Link } from 'react-router-dom'
+import { TaskContext } from '../../Context/Context'
 
 export const Register = () => {
+  const {addUser} = useContext(TaskContext)
+  const [nome, setNome] = useState('')
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
+
   return (
     <H.component>
       <H.contents>
@@ -23,17 +29,17 @@ export const Register = () => {
           <H.formInputs>
             <H.inputs>
               <label htmlFor="">Digite seu nome</label>
-              <input type="text" />
+              <input type="text" onChange={(e) => setNome(e.target.value)}  />
             </H.inputs>
 
             <H.inputs>
               <label htmlFor="">Digite seu e-mail</label>
-              <input type="email" />
+              <input type="email" onChange={(e) => setEmail(e.target.value)} />
             </H.inputs>
 
             <H.inputs>
               <label htmlFor="">Digite sua senha</label>
-              <input type="password" />
+              <input type="password" onChange={(e) => setSenha(e.target.value)} />
             </H.inputs>
 
             <H.forgot>
@@ -48,7 +54,7 @@ export const Register = () => {
             <H.login>
             <p>Criar sua conta com</p>
 
-            <button>Cadastrar</button>
+            <button onClick={() => addUser(nome, email, senha)}>Cadastrar</button>
           </H.login>
           </H.formInputs>
         </H.formItems>

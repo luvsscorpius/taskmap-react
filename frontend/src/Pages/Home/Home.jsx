@@ -8,7 +8,7 @@ export const Home = () => {
     <H.component>
       <H.contents>
         <H.logoItems>
-          <h1>Faça seu login</h1>
+          <h2>Faça seu login</h2>
           <p>Entre na sua conta para continuar</p>
 
           <img src={logo} alt="" />
@@ -16,8 +16,8 @@ export const Home = () => {
 
         <H.formItems>
           <H.formItemsButtons>
-            <Link className='links'>Login</Link>
-            <Link className='links'>Cadastro</Link>
+            <Link className='links' id='log'>Login</Link>
+            <Link className='links' to='/register'>Cadastro</Link>
           </H.formItemsButtons>
 
           <H.formInputs>

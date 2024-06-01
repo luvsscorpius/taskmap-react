@@ -14,7 +14,7 @@ export const Register = () => {
     <H.component>
       <H.contents>
         <H.logoItems>
-          <h2>Faça seu cadastro</h2>
+          <h2>Bem-vindo,</h2>
           <p>Crie sua conta para continuar</p>
 
           <img src={logo} alt="" />
@@ -28,18 +28,18 @@ export const Register = () => {
 
           <H.formInputs>
             <H.inputs>
-              <label htmlFor="">Digite seu nome</label>
-              <input type="text" onChange={(e) => setNome(e.target.value)}  />
+              <label htmlFor="nome">Digite seu nome</label>
+              <input type="text" onChange={(e) => setNome(e.target.value)} placeholder='Nome'/>
             </H.inputs>
 
             <H.inputs>
-              <label htmlFor="">Digite seu e-mail</label>
-              <input type="email" onChange={(e) => setEmail(e.target.value)} />
+              <label htmlFor="email">Digite seu e-mail</label>
+              <input type="email" onChange={(e) => setEmail(e.target.value)} placeholder='Email' />
             </H.inputs>
 
             <H.inputs>
               <label htmlFor="">Digite sua senha</label>
-              <input type="password" onChange={(e) => setSenha(e.target.value)} />
+              <input type="password" onChange={(e) => setSenha(e.target.value)} placeholder='Senha' />
             </H.inputs>
 
             <H.forgot>

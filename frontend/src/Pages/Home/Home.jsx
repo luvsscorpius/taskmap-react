@@ -8,7 +8,7 @@ export const Home = () => {
     <H.component>
       <H.contents>
         <H.logoItems>
-          <h2>Faça seu login</h2>
+          <h2>Bem-vindo,</h2>
           <p>Entre na sua conta para continuar</p>
 
           <img src={logo} alt="" />
@@ -22,13 +22,13 @@ export const Home = () => {
 
           <H.formInputs>
             <H.inputs>
-              <label htmlFor="">Digite seu e-mail</label>
-              <input type="email" />
+              <label htmlFor="email">Digite seu e-mail</label>
+              <input type="email" placeholder='Email' name='email'/>
             </H.inputs>
 
             <H.inputs>
-              <label htmlFor="">Digite sua senha</label>
-              <input type="password" />
+              <label htmlFor="senha">Digite sua senha</label>
+              <input type="password" placeholder='Password' name='senha'/>
             </H.inputs>
 
             <H.forgot>

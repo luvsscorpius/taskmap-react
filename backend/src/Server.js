@@ -13,6 +13,7 @@ const usersRouter = require('./Routes/users')
 const loginRouter = require('./Routes/login')
 const addTaskRouter = require('./Routes/addTask')
 const tasks = require('./Routes/tasks')
+const updateTasks = require('./Routes/updateTask')
 
 // Usando as rotas
 app.use('/', indexRouter)
@@ -20,5 +21,6 @@ app.use('/users', usersRouter)
 app.use('/login', loginRouter)
 app.use('/update/', addTaskRouter)
 app.use('/tasks', tasks)
+app.use('/updateTasks', updateTasks)
 
 app.listen(2000, () => console.log('Ouvindo na porta 2000'))

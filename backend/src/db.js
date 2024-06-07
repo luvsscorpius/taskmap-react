@@ -10,6 +10,7 @@ const Mongo = async () => {
 
         const db = client.db('usuarios')
 
+
         return db
     } catch (error) {
         console.error('Erro ao se conectar ao banco de dados: ', error)

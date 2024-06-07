@@ -8,19 +8,24 @@ export const Taskview = () => {
     const {user, addTask, tasks, setTasks} = useContext(TaskContext)
     const [novaTarefa, setNovaTarefa] = useState([])
     
-    const handleCheck = (index, isChecked, taskId) => {
+    const handleCheck = async (index, isChecked, taskId) => {
       console.log(index, isChecked, taskId)
 
       const locatedIndex = tasks.find(task => task.id === taskId)
       if (locatedIndex) {
         locatedIndex.isChecked = !isChecked
 
-        // O map aqui foi usado para criar um array atualizado
-        const updatedTasks = tasks.map(task => 
-          task.id === taskId ? locatedIndex : task
-        )
+        try {
+          await axios.put(`http://localhost:2000/updateTasks/${user._id}`, locatedIndex, {
+            headers: {'Content-Type': 'application/json'}
+          });
+  
+          console.log('Deu certo')
+        } catch(error) {
+          console.error(error)
+        }
 
-        setTasks(updatedTasks)
+      setTasks(tasks.map(task => task.id === taskId ? locatedIndex : task));
       }
     }
 

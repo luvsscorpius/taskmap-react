@@ -59,6 +59,7 @@ export const Context = ({children}) => {
         await axios.put(`http://localhost:2000/update/${user._id}`, novaTask, {
           headers: {'Content-Type': 'application/json'}
         });
+        
 
         console.log('Deu certo')
       } catch(error) {

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// Rota principal/padr]ao
+// Rota principal/padrao
 router.get('/', (req, res) => {
     res.send('Home Page');
 });

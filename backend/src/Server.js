@@ -11,10 +11,12 @@ app.use(cors())
 const indexRouter = require('./Routes/index')
 const usersRouter = require('./Routes/users')
 const loginRouter = require('./Routes/login')
+const addTaskRouter = require('./Routes/addTask')
 
 // Usando as rotas
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 app.use('/login', loginRouter)
+app.use('/update/:id', addTaskRouter)
 
 app.listen(2000, () => console.log('Ouvindo na porta 2000'))

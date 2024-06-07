@@ -135,6 +135,11 @@ export const taskInfo = styled.div`
         width: 20px;
         height: 20px;
     }
+
+    p {
+        font-weight: 600;
+        
+    }
 `
 
 export const taskBtn = styled.div`
@@ -146,6 +151,8 @@ export const taskBtn = styled.div`
     
     button {
         cursor: pointer;
+        border: 0;
+        width: 35%;
     }
 `
 

@@ -2,11 +2,31 @@ import React, { useContext, useState } from 'react'
 import { TaskContext } from '../../Context/Context'
 import * as T from './Styles'
 import {Trash, Pencil} from 'phosphor-react'
+import axios from 'axios'
 
 export const Taskview = () => {
-    const {user} = useContext(TaskContext)
+    const {user, addTask, tasks, setTasks} = useContext(TaskContext)
+    const [novaTarefa, setNovaTarefa] = useState([])
+    
+    const handleCheck = (index, isChecked, taskId) => {
+      console.log(index, isChecked, taskId)
 
-    const [tasks, setTasks] = useState([{id: 0, taskName: 'Estudar React'}, {id: 1, taskName: 'Estudar Java'}])
+      const locatedIndex = tasks.find(task => task.id === taskId)
+      if (locatedIndex) {
+        locatedIndex.isChecked = !isChecked
+
+        // O map aqui foi usado para criar um array atualizado
+        const updatedTasks = tasks.map(task => 
+          task.id === taskId ? locatedIndex : task
+        )
+
+        setTasks(updatedTasks)
+      }
+    }
+
+    const taske = (task) => {
+      setNovaTarefa({id: tasks.length + 1, taskName: task, isChecked: false})
+    }
 
   return (
     <T.component>
@@ -16,16 +36,15 @@ export const Taskview = () => {
         </T.title>
 
         <T.inputsContent>
-          <button>Add Task</button>
-          <input type="text" />
-          
+          <button onClick={(e) => addTask(e, novaTarefa)}>Add Task</button>
+          <input type="text" onChange={(e) => taske(e.target.value)} />
         </T.inputsContent>
 
         <T.tasksContent>
             {tasks.map((task) => (
-              <T.task>
+              <T.task key={task.id}>
                 <T.taskInfo>
-                  <input type="checkbox" id="check" />
+                  <input type="checkbox" id="check" checked={task.isChecked} onChange={(index)=> handleCheck(index, task.isChecked, task.id)}  />
                   <p>{task.id}</p> -
                   <p>{task.taskName}</p>
                 </T.taskInfo>

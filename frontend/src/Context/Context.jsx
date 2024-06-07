@@ -11,6 +11,10 @@ export const Context = ({children}) => {
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
 
+    const [tasks, setTasks] = useState([
+      {id: 0, taskName: 'Estudar React', isChecked: false}, 
+      {id: 1, taskName: 'Estudar Java', isChecked: true}])
+
     const navigate = useNavigate()
 
     const handleLogin = async (e) => {
@@ -37,13 +41,19 @@ export const Context = ({children}) => {
       }
     }
 
+    const addTask = async (e, novaTask) => {
+      e.preventDefault()
+      setTasks([...tasks, novaTask])
+      console.log(tasks)
+    }
+
     const addUser = (nome, email, senha) => {
         setUsers({...users, nome, email, senha})
     }
 
     console.log(user)
 
-    const contextValue = {addUser, users, setEmail, setPassword, error, handleLogin, user}
+    const contextValue = {addUser, users, setEmail, setPassword, error, handleLogin, user, addTask, tasks, setTasks}
   return (
     <TaskContext.Provider value={contextValue}>
         {children}

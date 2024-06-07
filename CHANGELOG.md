@@ -1,3 +1,12 @@
+# [1.4.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.3.0...v1.4.0) (2024-06-07)
+
+
+### Features
+
+* **addtask:** creating a new route on backend ([da406d5](https://github.com/luvsscorpius/taskmap-react/commit/da406d5d98fffb23dd2a1557e5ad6a9d621afa49))
+* **context:** creating addtask function to create tasks ([71fe2b1](https://github.com/luvsscorpius/taskmap-react/commit/71fe2b1b2b23d82142d51ac1a91d617ecd90243d))
+* **update:** merging ([c48e1f5](https://github.com/luvsscorpius/taskmap-react/commit/c48e1f5c5470c959adf1f1bbe1ee7b6ab164a293))
+
 # [1.3.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.2.0...v1.3.0) (2024-06-03)
 
 

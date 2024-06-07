@@ -1,6 +1,6 @@
 import React, {createContext, useState} from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { json, useNavigate } from 'react-router-dom'
 
 export const TaskContext = createContext(null)
 
@@ -26,6 +26,15 @@ export const Context = ({children}) => {
           headers: {'Content-Type': 'application/json'}
         }
         )
+
+        // Aqui usaremos denovo o axios para consultar as tasks desse usuário
+        const res = await axios.get("http://localhost:2000/tasks",
+        {
+          headers: {'Content-Type': 'application/json'}
+        })
+
+        const tasks = res.data[0].tasks
+        setTasks(tasks)
   
         setUser(response.data)
         navigate('/taskview')
@@ -39,6 +48,8 @@ export const Context = ({children}) => {
         }
       }
     }
+
+    console.log(user)
 
     const addTask = async (e, novaTask) => {
       e.preventDefault()
@@ -60,8 +71,6 @@ export const Context = ({children}) => {
     const addUser = (nome, email, senha) => {
         setUsers({...users, nome, email, senha})
     }
-
-    console.log(user)
 
     const contextValue = {addUser, users, setEmail, setPassword, error, handleLogin, user, addTask, tasks, setTasks}
   return (

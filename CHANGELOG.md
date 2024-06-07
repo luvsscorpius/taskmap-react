@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.2.0...v1.3.0) (2024-06-03)
+
+
+### Features
+
+* **backend:** modularizando as rotas ([3c7d5de](https://github.com/luvsscorpius/taskmap-react/commit/3c7d5def4578a47b6e7bb5e067404a1436a43216))
+* **taskview:** creating the new todo list page ([cfd4775](https://github.com/luvsscorpius/taskmap-react/commit/cfd47750c4d24395331c91faa86b25b7cce93a3f))
+
 # [1.2.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.1.0...v1.2.0) (2024-06-01)
 
 

@@ -12,8 +12,7 @@ export const Context = ({children}) => {
     const [error, setError] = useState('')
 
     const [tasks, setTasks] = useState([
-      {id: 0, taskName: 'Estudar React', isChecked: false}, 
-      {id: 1, taskName: 'Estudar Java', isChecked: true}])
+      ])
 
     const navigate = useNavigate()
 
@@ -45,6 +44,17 @@ export const Context = ({children}) => {
       e.preventDefault()
       setTasks([...tasks, novaTask])
       console.log(tasks)
+
+      try {
+        await axios.put(`http://localhost:2000/update/${user._id}`, JSON.stringify({email, password}), 
+        {
+          headers: {'Content-Type': 'application/json'}
+        })
+
+        console.log('Deu certo')
+      } catch(error) {
+        console.error(error)
+      }
     }
 
     const addUser = (nome, email, senha) => {

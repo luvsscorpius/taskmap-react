@@ -9,12 +9,8 @@ const Mongo = async () => {
         console.log('Conectado ao banco de dados')
 
         const db = client.db('usuarios')
-        const documents = await db.collection('usuarios').find({}).toArray()
 
-        client.close()
-        console.log('Conexão fechada com o banco de dados')
-
-        return documents
+        return db
     } catch (error) {
         console.error('Erro ao se conectar ao banco de dados: ', error)
     }

@@ -1,3 +1,17 @@
+# [1.5.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.4.0...v1.5.0) (2024-06-07)
+
+
+### Bug Fixes
+
+* **addtask:** now you can add new tasks on data base ([e77f5cf](https://github.com/luvsscorpius/taskmap-react/commit/e77f5cfaa4f232f3b7ec615e54296f672bf739c5))
+* **db.js:** updating form of finding collection login/addtask/db ([aaf1672](https://github.com/luvsscorpius/taskmap-react/commit/aaf1672fcc54339d0ef94cb091670c2a647f445c))
+* **updatetask:** using filter task.id and task.$ to update isChecked on data base ([c6e6139](https://github.com/luvsscorpius/taskmap-react/commit/c6e6139d1e072fb8b511951600c4eb33c92213a8))
+
+
+### Features
+
+* **tasks:** listing tasks from db on taskview ([dbc1f21](https://github.com/luvsscorpius/taskmap-react/commit/dbc1f2186d6b7a96686b746e32f455f9bbe466fb))
+
 # [1.4.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.3.0...v1.4.0) (2024-06-07)
 
 

@@ -49,18 +49,16 @@ export const Context = ({children}) => {
       }
     }
 
-    console.log(user)
-
     const addTask = async (e, novaTask) => {
       e.preventDefault()
       setTasks([...tasks, novaTask])
       console.log(tasks)
+      console.log(novaTask)
 
       try {
-        await axios.put(`http://localhost:2000/update/${user._id}`, JSON.stringify({email, password}), 
-        {
+        await axios.put(`http://localhost:2000/update/${user._id}`, novaTask, {
           headers: {'Content-Type': 'application/json'}
-        })
+        });
 
         console.log('Deu certo')
       } catch(error) {

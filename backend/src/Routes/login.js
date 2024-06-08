@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Mongo = require('../db')
+const Mongo = require('../config/db')
 
 // Rota de login
 router.post('/', async (req, res) => {

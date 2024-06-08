@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Mongo = require('../db.js')
+const Mongo = require('../config/db')
 
 // Rota dos usuários
 router.get('/', async (req, res) => {

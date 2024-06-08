@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Mongo = require('../db')
+const Mongo = require('../config/db')
 const { ObjectId } = require('mongodb')
 
 router.put('/:user', async (req, res) => {

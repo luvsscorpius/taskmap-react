@@ -1,7 +1,7 @@
 // Criando o servidor
 const express = require('express')
 const cors = require('cors')
-require('./db')
+require('./config/db')
 const app = express()
 
 app.use(express.json())

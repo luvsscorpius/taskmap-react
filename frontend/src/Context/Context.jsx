@@ -54,6 +54,34 @@ export const Context = ({children}) => {
 
     // Usando o useEffect para manter o usuário logado, juntamente com as tarefas desse usuário
     useEffect(() => {
+      // Usando a mesma função para manter a página atualizada caso adicione uma tarefa e atualize a página, ele busque novamente na API.
+      const fetchData = async () => {
+          // Fazer a chamada da api do backend 
+        try {
+
+          // Aqui usaremos denovo o axios para consultar as tasks desse usuário
+          const res = await axios.get("http://localhost:2000/tasks",
+          {
+            headers: {'Content-Type': 'application/json'}
+          })
+
+          sessionStorage.setItem('tasks', JSON.stringify(res.data[0].tasks))
+          const tasks = res.data[0].tasks
+          console.log(tasks)
+          setTasks(tasks)
+  
+          // Caso der algum erro
+          } catch (error) {
+          if (!error?.response) {
+            setError('Erro ao acessar o servidor')
+          } else if (error.response.status === 401) {
+            setError('Usuário ou senha invalidos')
+          }
+        }
+      }
+
+      fetchData()
+
       const loggedInUser = sessionStorage.getItem('user')
       const tasks = sessionStorage.getItem('tasks')
       if (loggedInUser && tasks) {

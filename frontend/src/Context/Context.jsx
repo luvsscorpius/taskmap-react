@@ -38,7 +38,6 @@ export const Context = ({children}) => {
         setTasks(tasks)
   
         sessionStorage.setItem('user', JSON.stringify(response.data))
-        console.log(response.data)
         setUser(response.data)
         navigate('/taskview')
   
@@ -67,16 +66,11 @@ export const Context = ({children}) => {
 
           sessionStorage.setItem('tasks', JSON.stringify(res.data[0].tasks))
           const tasks = res.data[0].tasks
-          console.log(tasks)
           setTasks(tasks)
   
           // Caso der algum erro
           } catch (error) {
-          if (!error?.response) {
-            setError('Erro ao acessar o servidor')
-          } else if (error.response.status === 401) {
-            setError('Usuário ou senha invalidos')
-          }
+            console.error(error)
         }
       }
 
@@ -92,13 +86,9 @@ export const Context = ({children}) => {
       }
     }, [])
 
-    console.log(tasks)
-
     const addTask = async (e, novaTask) => {
       e.preventDefault()
       setTasks([...tasks, novaTask])
-      console.log(tasks)
-      console.log(novaTask)
 
       try {
         await axios.put(`http://localhost:2000/update/${user._id}`, novaTask, {

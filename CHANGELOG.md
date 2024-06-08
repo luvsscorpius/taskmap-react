@@ -1,3 +1,17 @@
+# [1.6.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.5.0...v1.6.0) (2024-06-08)
+
+
+### Bug Fixes
+
+* **console:** removing console.logs from context ([8499134](https://github.com/luvsscorpius/taskmap-react/commit/84991347fde314177170722627cf78f4250527d5))
+
+
+### Features
+
+* **folder architecture:** changing the folder architecture ([aaf6c23](https://github.com/luvsscorpius/taskmap-react/commit/aaf6c23af4990737d186759badf2eef763a2943d))
+* **frontend useeffect:** duplicating fetchData on useEffect to get the data again when updating pag ([e4dd637](https://github.com/luvsscorpius/taskmap-react/commit/e4dd637403898960be9ccd510d2cae6c0e856f0c))
+* **frontend:** keeping a user logged in ([998b991](https://github.com/luvsscorpius/taskmap-react/commit/998b991ae4d5e13a3f259c2e76f85a8bf0ae59cc))
+
 # [1.5.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.4.0...v1.5.0) (2024-06-07)
 
 

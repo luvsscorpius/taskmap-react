@@ -24,8 +24,12 @@ export const Taskview = () => {
         } catch(error) {
           console.error(error)
         }
-
+      
+      // Atualizando o array tasks com a nova propriedade de isChecked
       setTasks(tasks.map(task => task.id === taskId ? locatedIndex : task));
+      // Depois de atualizar o array locamente, atualizaremos na sessão para caso o usuário atualize a página, ele não perca os dados e os recupere.
+      const test = tasks.map(task => task.id === taskId ? locatedIndex : task)
+      sessionStorage.setItem('tasks', JSON.stringify(test))
       }
     }
 

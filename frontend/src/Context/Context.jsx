@@ -1,12 +1,12 @@
-import React, {createContext, useState} from 'react'
+import React, {createContext, useEffect, useState} from 'react'
 import axios from 'axios'
-import { json, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export const TaskContext = createContext(null)
 
 export const Context = ({children}) => {
     const [users, setUsers] = useState([])
-    const [user, setUser] = useState([])
+    const [user, setUser] = useState(sessionStorage.getItem('user'))
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
@@ -33,9 +33,12 @@ export const Context = ({children}) => {
           headers: {'Content-Type': 'application/json'}
         })
 
+        sessionStorage.setItem('tasks', JSON.stringify(res.data[0].tasks))
         const tasks = res.data[0].tasks
         setTasks(tasks)
   
+        sessionStorage.setItem('user', JSON.stringify(response.data))
+        console.log(response.data)
         setUser(response.data)
         navigate('/taskview')
   
@@ -48,6 +51,20 @@ export const Context = ({children}) => {
         }
       }
     }
+
+    // Usando o useEffect para manter o usuário logado, juntamente com as tarefas desse usuário
+    useEffect(() => {
+      const loggedInUser = sessionStorage.getItem('user')
+      const tasks = sessionStorage.getItem('tasks')
+      if (loggedInUser && tasks) {
+        const foundUser = JSON.parse(loggedInUser)
+        const foundTasks = JSON.parse(tasks)
+        setUser(foundUser)
+        setTasks(foundTasks)
+      }
+    }, [])
+
+    console.log(tasks)
 
     const addTask = async (e, novaTask) => {
       e.preventDefault()

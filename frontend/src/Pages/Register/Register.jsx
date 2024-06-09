@@ -54,7 +54,7 @@ export const Register = () => {
             <H.login>
             <p>Criar sua conta com</p>
 
-            <button onClick={() => addUser(nome, email, senha)}>Cadastrar</button>
+            <button onClick={(e) => addUser(e, nome, email, senha)}>Cadastrar</button>
           </H.login>
           </H.formInputs>
         </H.formItems>

@@ -102,8 +102,19 @@ export const Context = ({children}) => {
       }
     }
 
-    const addUser = (nome, email, senha) => {
-        setUsers({...users, nome, email, senha})
+    const addUser = async (e, nome, email, senha) => {
+      e.preventDefault()
+
+      const user = {name: nome, email: email, password: senha}
+      console.log(user)
+
+      try {
+      await axios.post(`http://localhost:2000/createuser`, JSON.stringify(user), {
+          headers: {'Content-Type': 'application/json'}
+        })
+      } catch (error) {
+        console.error(error)
+      }
     }
 
     const contextValue = {addUser, users, setEmail, setPassword, error, handleLogin, user, addTask, tasks, setTasks}

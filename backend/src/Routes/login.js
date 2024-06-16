@@ -18,8 +18,8 @@ router.post('/', async (req, res) => {
         // Se sim retornamos um status 200 de ok e um json com o usuário
         if (user) {
             return res.status(200).json(user)
-        } else if (user) {
-            return res.status(401)
+        } else {
+            return res.status(401).send('Unathorized')
         }
     
     } catch (error) {

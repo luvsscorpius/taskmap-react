@@ -4,10 +4,13 @@ import { GlobalStyle } from './Pages/Home/Styles';
 import { Register } from './Pages/Register/Register';
 import { Context } from './Context/Context';
 import { Taskview } from './Pages/Taskview/Taskview';
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css"
 
 function App() {
   return (
     <>
+    <ToastContainer autoClose={3000}/>
     <GlobalStyle/>
     <Router>
     <Context>

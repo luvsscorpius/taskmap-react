@@ -1,6 +1,7 @@
 import React, {createContext, useEffect, useState} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export const TaskContext = createContext(null)
 
@@ -9,7 +10,6 @@ export const Context = ({children}) => {
     const [user, setUser] = useState(sessionStorage.getItem('user'))
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
 
     const [tasks, setTasks] = useState([
       ])
@@ -49,9 +49,13 @@ export const Context = ({children}) => {
         // Caso der algum erro
       } catch (error) {
         if (!error?.response) {
-          setError('Erro ao acessar o servidor')
+          return toast.error('Erro ao acessar o servidor', {
+            position: 'top-right'
+          })
         } else if (error.response.status === 401) {
-          setError('Usuário ou senha invalidos')
+          return toast.error('Usuário ou senha invalidos', {
+            position: 'top-right'
+          })
         }
       }
     }
@@ -100,7 +104,7 @@ export const Context = ({children}) => {
           headers: {'Content-Type': 'application/json'}
         });
 
-        console.log('Deu certo')
+        console.log('Tarefa adicionada com sucesso')
       } catch(error) {
         console.error(error)
       }
@@ -117,12 +121,19 @@ export const Context = ({children}) => {
       await axios.post(`http://localhost:2000/createuser`, JSON.stringify(user), {
           headers: {'Content-Type': 'application/json'}
         })
+        toast.success('Usuário criado com sucesso', {
+          position: 'top-right'
+        })
       } catch (error) {
-        console.error(error)
+        if (!error?.response) {
+          toast.error('Erro ao criar um novo usuário')
+        } else if (error.response.status === 409) {
+          toast.error('Usuário ja existe.')
+        }
       }
     }
 
-    const contextValue = {addUser, users, setEmail, setPassword, error, handleLogin, user, addTask, tasks, setTasks}
+    const contextValue = {addUser, users, setEmail, setPassword, handleLogin, user, addTask, tasks, setTasks}
   return (
     <TaskContext.Provider value={contextValue}>
         {children}

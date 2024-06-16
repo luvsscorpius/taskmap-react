@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { TaskContext } from '../../Context/Context'
 
 export const Home = () => {
-  const {handleLogin, setEmail, setPassword, error} = useContext(TaskContext)
+  const {handleLogin, setEmail, setPassword} = useContext(TaskContext)
 
   return (
     <H.component>
@@ -52,7 +52,6 @@ export const Home = () => {
         </H.formItems>
       </H.contents>
 
-      <p>{error}</p>
     </H.component>
   )
 }

@@ -7,6 +7,12 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+// Importando as middlewares
+const logger = require('./Middlewares/Log.middleware')
+
+// Usando as middlewares
+app.use(logger)
+
 // Importando as rotas
 const indexRouter = require('./Routes/index')
 const usersRouter = require('./Routes/users')

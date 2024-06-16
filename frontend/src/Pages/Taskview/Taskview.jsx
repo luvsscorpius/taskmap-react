@@ -7,6 +7,8 @@ import axios from 'axios'
 export const Taskview = () => {
     const {user, addTask, tasks, setTasks} = useContext(TaskContext)
     const [novaTarefa, setNovaTarefa] = useState([])
+
+    console.log(tasks)
     
     const handleCheck = async (index, isChecked, taskId) => {
       console.log(index, isChecked, taskId)
@@ -50,7 +52,7 @@ export const Taskview = () => {
         </T.inputsContent>
 
         <T.tasksContent>
-            {tasks.map((task) => (
+            {tasks === undefined ? 'Não há tarefas' : tasks.map((task) => (
               <T.task key={task.id}>
                 <T.taskInfo>
                   <input type="checkbox" id="check" checked={task.isChecked} onChange={(index)=> handleCheck(index, task.isChecked, task.id)}  />
@@ -65,7 +67,6 @@ export const Taskview = () => {
               </T.task>
             ))}
         </T.tasksContent>
-      
       </T.contents>
     </T.component>
   )

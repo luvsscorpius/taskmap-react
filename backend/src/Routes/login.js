@@ -12,11 +12,9 @@ router.post('/', async (req, res) => {
         // Buscamos no banco de dados os usuários
         const db = await Mongo()
         const collection = await db.collection('usuarios').find({}).toArray()
-        console.log(collection)
 
         // Lógica para ver se o mesmo email e senha existem no banco de dados
         const user = collection.find(user => user.email === email && user.password === password)
-        console.log(user)
         // Se sim retornamos um status 200 de ok e um json com o usuário
         if (user) {
             return res.status(200).json(user)

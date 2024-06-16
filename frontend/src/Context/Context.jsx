@@ -99,7 +99,6 @@ export const Context = ({children}) => {
         await axios.put(`http://localhost:2000/update/${user._id}`, novaTask, {
           headers: {'Content-Type': 'application/json'}
         });
-        
 
         console.log('Deu certo')
       } catch(error) {
@@ -110,7 +109,8 @@ export const Context = ({children}) => {
     const addUser = async (e, nome, email, senha) => {
       e.preventDefault()
 
-      const user = {name: nome, email: email, password: senha}
+      // Mandando um array vazio para cada usuário que for criado para não dar erro na hora de ler as supostas tasks que o usuário ainda não tem.
+      const user = {name: nome, email: email, password: senha, tasks: []}
       console.log(user)
 
       try {

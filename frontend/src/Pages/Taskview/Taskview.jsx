@@ -36,7 +36,9 @@ export const Taskview = () => {
     }
 
     const taske = (task) => {
-      setNovaTarefa({id: tasks.length + 1, taskName: task, isChecked: false})
+      if (tasks != undefined) {
+        setNovaTarefa({id: tasks.length + 1, taskName: task, isChecked: false})
+      }
     }
 
   return (

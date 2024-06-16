@@ -1,3 +1,19 @@
+# [1.7.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.6.0...v1.7.0) (2024-06-16)
+
+
+### Bug Fixes
+
+* **backend tasks:** fixing the bug where it would show all tasks from all users ([bc10313](https://github.com/luvsscorpius/taskmap-react/commit/bc10313c0ebb590a52a36e933ab67384ad27be54))
+* **frontend context:** sending an empty array called tasks to database ([54d0be7](https://github.com/luvsscorpius/taskmap-react/commit/54d0be7e84c6f5f10566b8f3b51c6afcfa04c5ad))
+
+
+### Features
+
+* **backend middlewares:** adding middlewares to backend for a better debug ([01e2a99](https://github.com/luvsscorpius/taskmap-react/commit/01e2a99e60b3a9216f33bc8b9355a651bcfad000))
+* **backend:** creating createuser route ([bc7c0ef](https://github.com/luvsscorpius/taskmap-react/commit/bc7c0ef2f3586ea4768b92b65aa8ab18bccab1cc))
+* **context:** sending userInfo to database ([87b351a](https://github.com/luvsscorpius/taskmap-react/commit/87b351ac3b72984ea3fe892504ec9efe7fdb9985))
+* **frontend:** toastify ([de3d192](https://github.com/luvsscorpius/taskmap-react/commit/de3d1929a6cf05f41ebc8d6e64426d979c22691f))
+
 # [1.6.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.5.0...v1.6.0) (2024-06-08)
 
 

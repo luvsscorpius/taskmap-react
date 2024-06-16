@@ -9,6 +9,7 @@ app.use(cors())
 
 // Importando as middlewares
 const logger = require('./Middlewares/Log.middleware')
+const auth = require('./Middlewares/auth.middleware')
 
 // Usando as middlewares
 app.use(logger)
@@ -25,7 +26,7 @@ const createUser = require('./Routes/createUser')
 // Usando as rotas
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
-app.use('/login', loginRouter)
+app.use('/login', auth, loginRouter)
 app.use('/update/', addTaskRouter)
 app.use('/tasks', tasks)
 app.use('/updateTasks', updateTasks)

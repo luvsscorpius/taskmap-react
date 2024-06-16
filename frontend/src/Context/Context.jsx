@@ -21,9 +21,11 @@ export const Context = ({children}) => {
   
       // Fazer a chamada da api do backend 
       try {
+        const token = 'valid-token'
         const response = await axios.post("http://localhost:2000/login", JSON.stringify({email, password}), 
         {
-          headers: {'Content-Type': 'application/json'}
+          headers: {
+            'Content-Type': 'application/json', 'Authorization': `${token}`}
         }
         )
 

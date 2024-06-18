@@ -10,6 +10,7 @@ export const Taskview = () => {
 
     console.log(tasks)
     
+    
     const handleCheck = async (index, isChecked, taskId) => {
       console.log(index, isChecked, taskId)
 

@@ -1,3 +1,11 @@
+# [1.8.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.7.0...v1.8.0) (2024-06-18)
+
+
+### Features
+
+* **frontend button:** creating a new button component ([e9cae06](https://github.com/luvsscorpius/taskmap-react/commit/e9cae066920e470565fe8bc8e45229674668f72a))
+* **frontend themes:** creating themes to operate the frontend ([d8e9156](https://github.com/luvsscorpius/taskmap-react/commit/d8e915628dde512121eae5b760062df00def1b07))
+
 # [1.7.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.6.0...v1.7.0) (2024-06-16)
 
 

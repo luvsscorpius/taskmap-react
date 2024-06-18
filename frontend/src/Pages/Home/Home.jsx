@@ -51,7 +51,7 @@ export const Home = () => {
           </H.formInputs>
         </H.formItems>
       </H.contents>
-
+    
     </H.component>
   )
 }

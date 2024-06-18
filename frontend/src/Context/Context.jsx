@@ -2,6 +2,9 @@ import React, {createContext, useEffect, useState} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { ThemeProvider } from 'styled-components'
+import { darkTheme, lightTheme } from '../Components/Themes'
+import { GlobalStyle } from '../Pages/Home/Styles'
 
 export const TaskContext = createContext(null)
 
@@ -10,6 +13,8 @@ export const Context = ({children}) => {
     const [user, setUser] = useState(sessionStorage.getItem('user'))
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    // Toggle button
+    const [theme, setTheme] = useState('light')
 
     const [tasks, setTasks] = useState([
       ])
@@ -133,10 +138,16 @@ export const Context = ({children}) => {
       }
     }
 
-    const contextValue = {addUser, users, setEmail, setPassword, handleLogin, user, addTask, tasks, setTasks}
+    console.log(theme)
+
+    const contextValue = {addUser, users, setEmail, setPassword, handleLogin, user, addTask, tasks, setTasks, theme, setTheme}
+    
   return (
-    <TaskContext.Provider value={contextValue}>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <GlobalStyle/>
+      <TaskContext.Provider value={contextValue}>
         {children}
-    </TaskContext.Provider>
+      </TaskContext.Provider>
+    </ThemeProvider>
   )
 }

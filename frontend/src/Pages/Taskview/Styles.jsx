@@ -7,19 +7,12 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-family: "Montserrat", sans-serif;
-
-        --input-focus: #75E4DE;
-        --font-color: #323232;
-        --font-color-sub: #666;
-        --bg-color: #fff;
-        --main-color: #323232;
     }
-    
 `
 
 export const component = styled.div`
     width: 100%;
-    height: 100vh;
+    height: 95vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,8 +25,8 @@ export const contents = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid var(--main-color);
-    box-shadow: 4px 4px var(--main-color);
+    border: 2px solid ${(props) => props.theme.colors.maincolor};
+    box-shadow: 4px 4px ${(props) => props.theme.colors.maincolor};
 `
 
 export const title = styled.div`
@@ -62,10 +55,10 @@ export const inputsContent = styled.form`
         height: 25px;
         padding-left: 5px;
         background-color: #DDEBFE;
-        border: 2px solid var(--main-color);
+        border: 2px solid ${(props) => props.theme.colors.maincolor};
         border-radius: 5px;
         background-color: var(--bg-color);
-        box-shadow: 4px 4px var(--main-color);
+        box-shadow: 4px 4px ${(props) => props.theme.colors.maincolor};
         font-weight: 600;
         font-size: 15px;
         color: var(--font-color);
@@ -73,7 +66,7 @@ export const inputsContent = styled.form`
         outline: none;
 
         &::placeholder {
-            color: var(--font-color-sub);
+            color: ${(props) => props.theme.colors.fontcolor};
             opacity: 0.8;
         }
     }

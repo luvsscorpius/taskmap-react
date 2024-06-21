@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.8.0...v1.9.0) (2024-06-21)
+
+
+### Features
+
+* **theme:** adding theme changes to application ([e80b47e](https://github.com/luvsscorpius/taskmap-react/commit/e80b47e39897b6f6633dacdd1c4928cd74c1a6e5))
+
 # [1.8.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.7.0...v1.8.0) (2024-06-18)
 
 

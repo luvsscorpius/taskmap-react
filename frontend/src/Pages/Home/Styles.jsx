@@ -20,6 +20,7 @@ export const component = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    color: ${(props) => props.theme.colors.fontcolor};
 `
 
 export const contents = styled.div`
@@ -28,7 +29,6 @@ export const contents = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: ${(props) => props.theme.colors.bgcoloritens};
 `
 
 export const logoItems = styled.div`    
@@ -75,11 +75,12 @@ export const formItemsButtons = styled.div`
         text-decoration: none;
         color: #000;
         font-size: 20px;
+        color: ${(props) => props.theme.colors.fontcolor};
     }
 
     #log {
         border-bottom: 5px solid;
-        border-color: #75E4DE;
+        border-color: #263169;
     }
 `
 
@@ -153,7 +154,7 @@ export const login = styled.div`
     }
 
     button {
-        background-color: #75E4DE;
+        background-color: #263169;
         border: 0;
         width: 200px;
         height: 40px;

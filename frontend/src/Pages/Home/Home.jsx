@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import * as H from './Styles'
-import logo from '../../assets/logo.jpg'
+import logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom'
 import { TaskContext } from '../../Context/Context'
 

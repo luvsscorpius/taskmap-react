@@ -27,6 +27,7 @@ export const contents = styled.div`
     align-items: center;
     border: 2px solid ${(props) => props.theme.colors.maincolor};
     box-shadow: 4px 4px ${(props) => props.theme.colors.maincolor};
+    color: ${(props) => props.theme.colors.fontcolor};
 `
 
 export const title = styled.div`
@@ -72,7 +73,7 @@ export const inputsContent = styled.form`
     }
 
     button {
-        background-color: #75E4DE;
+        background-color: #263169;
         border: 0;
         width: 120px;
         height: 40px;
@@ -96,7 +97,7 @@ export const tasksContent = styled.div`
     width: 98%;
     margin-top: 10px;
     height: 100%;
-    background-color: #eee;
+    background-color: ${(props) => props.theme.colors.content};
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -111,7 +112,7 @@ export const task = styled.div`
     margin-top: 10px;
     padding: 10px;
     display: flex;
-    background-color: #fff;
+    background-color: ${(props) => props.theme.colors.taskinfo};
     border-radius: 5px;
 `
 

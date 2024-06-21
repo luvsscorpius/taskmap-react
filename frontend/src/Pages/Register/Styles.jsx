@@ -25,6 +25,7 @@ export const contents = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    color: ${(props) => props.theme.colors.fontcolor};
 `
 
 export const logoItems = styled.div`    
@@ -69,13 +70,13 @@ export const formItemsButtons = styled.div`
     .links {
         padding: 10px;
         text-decoration: none;
-        color: #000;
+        color: ${(props) => props.theme.colors.fontcolor};
         font-size: 20px;
     }
 
     #reg {
         border-bottom: 5px solid;
-        border-color: #75E4DE;
+        border-color: #263169
     }
 `
 
@@ -107,7 +108,7 @@ export const formInputs = styled.div`
         outline: none;
 
         &::placeholder {
-            color: ${(props) => props.theme.colors.fontsubcolor};
+            color: ${(props) => props.theme.colors.fontcolor};
             opacity: 0.8;
         }
     }
@@ -149,7 +150,7 @@ export const login = styled.div`
     }
 
     button {
-        background-color: #75E4DE;
+        background-color: #263169;
         border: 0;
         width: 200px;
         height: 40px;

@@ -1,3 +1,11 @@
+# [1.10.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.9.0...v1.10.0) (2024-06-22)
+
+
+### Features
+
+* **frontend:** now you can hide or show your password ([c15c184](https://github.com/luvsscorpius/taskmap-react/commit/c15c18461d6cba5a13adb3fe4fbad446c525c6ae))
+* **frontend:** togglebutton logic ([cbf66c0](https://github.com/luvsscorpius/taskmap-react/commit/cbf66c0b6563e3207f97ec935061ec8133c437a9))
+
 # [1.9.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.8.0...v1.9.0) (2024-06-21)
 
 

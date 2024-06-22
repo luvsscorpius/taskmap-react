@@ -138,8 +138,6 @@ export const Context = ({children}) => {
       }
     }
 
-    console.log(theme)
-
     const contextValue = {addUser, users, setEmail, setPassword, handleLogin, user, addTask, tasks, setTasks, theme, setTheme}
     
   return (

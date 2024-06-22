@@ -7,11 +7,9 @@ export const ButtonTheme = () => {
 
     const {theme, setTheme} = useContext(TaskContext)
 
-    console.log(theme)
-
   return (
     <B.buttonContent>
-        <input type="checkbox"  />
+        <input type="checkbox" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}  />
         <span className="slider">
           <div className="icons">
               <FaSun/>

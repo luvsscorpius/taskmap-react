@@ -8,6 +8,10 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         font-family: "Montserrat", sans-serif;
     }
+
+    body {
+        transition: all 0.25s linear;
+    }
     
 `
 
@@ -26,6 +30,7 @@ export const contents = styled.div`
     align-items: center;
     justify-content: center;
     color: ${(props) => props.theme.colors.fontcolor};
+    transition: all 0.25s linear;
 `
 
 export const logoItems = styled.div`    
@@ -52,6 +57,7 @@ export const formItems = styled.form`
     padding: 20px;
     border: 2px solid ${(props) => props.theme.colors.maincolor};
     box-shadow: 4px 4px ${(props) => props.theme.colors.maincolor};
+    transition: all 0.25s linear;
     width: 100%;
     height: 100%;
     display: flex;
@@ -72,6 +78,7 @@ export const formItemsButtons = styled.div`
         text-decoration: none;
         color: ${(props) => props.theme.colors.fontcolor};
         font-size: 20px;
+        transition: all 0.25s linear;
     }
 
     #reg {
@@ -106,10 +113,12 @@ export const formInputs = styled.div`
         color: ${(props) => props.theme.colors.fontcolor};
         padding: 5px 10px;
         outline: none;
+        transition: all 0.25s linear;
 
         &::placeholder {
             color: ${(props) => props.theme.colors.fontcolor};
             opacity: 0.8;
+            transition: all 0.25s linear;
         }
     }
 

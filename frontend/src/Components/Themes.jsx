@@ -14,11 +14,11 @@ export const lightTheme = {
 export const darkTheme = {
     colors: {
         inputfocus: '#75E4DE',
-        fontcolor: '#fff', // Cor clara para melhor contraste no fundo escuro
-        fontcolorsub: '#fff', // Cor clara para subtítulos
-        bgcolor: '#121212', // Fundo principal escuro
-        maincolor: '#263169', // Mantém a cor principal para destacar elementos
-        bgcoloritens: '#1E1E1E', // Fundo dos itens um pouco mais claro que o fundo principal
+        fontcolor: '#fff', 
+        fontcolorsub: '#fff', 
+        bgcolor: '#121212',
+        maincolor: '#263169', 
+        bgcoloritens: '#1E1E1E', 
         content: '#121212',
         taskinfo: '#263169'
     }

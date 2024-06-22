@@ -8,6 +8,10 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         font-family: "Montserrat", sans-serif;
     }
+
+    body {
+        transition: all 0.25s linear;
+    }
 `
 
 export const component = styled.div`
@@ -16,6 +20,7 @@ export const component = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.25s linear;
 `
 
 export const contents = styled.div`
@@ -28,6 +33,7 @@ export const contents = styled.div`
     border: 2px solid ${(props) => props.theme.colors.maincolor};
     box-shadow: 4px 4px ${(props) => props.theme.colors.maincolor};
     color: ${(props) => props.theme.colors.fontcolor};
+    transition: all 0.25s linear;
 `
 
 export const title = styled.div`
@@ -35,6 +41,7 @@ export const title = styled.div`
     height: 50px;
     text-align: center;
     padding-top: 10px;
+    transition: all 0.25s linear;
 
     p {
         font-size: 18px;
@@ -49,6 +56,7 @@ export const inputsContent = styled.form`
     align-items: center;
     margin-top: 10px;
     gap: 10px;
+    transition: all 0.25s linear;
     
     input { 
         display: flex;
@@ -65,10 +73,12 @@ export const inputsContent = styled.form`
         color: var(--font-color);
         padding: 5px 10px;
         outline: none;
+        transition: all 0.25s linear;
 
         &::placeholder {
             color: ${(props) => props.theme.colors.fontcolor};
             opacity: 0.8;
+            transition: all 0.25s linear;
         }
     }
 
@@ -82,6 +92,7 @@ export const inputsContent = styled.form`
         font-weight: 600;
         color: #fff;
         font-size: 15px;
+        transition: all 0.25s linear;
 
         &:hover {
             cursor: pointer;
@@ -104,6 +115,7 @@ export const tasksContent = styled.div`
     justify-content: start;
     align-items: center;
     gap: 5px;
+    transition: all 0.25s linear;
 `
 
 export const task = styled.div`
@@ -114,6 +126,7 @@ export const task = styled.div`
     display: flex;
     background-color: ${(props) => props.theme.colors.taskinfo};
     border-radius: 5px;
+    transition: all 0.25s linear;
 `
 
 export const taskInfo = styled.div`
@@ -123,6 +136,7 @@ export const taskInfo = styled.div`
     gap: 8px;
     padding-left: 10px;
     align-items: center;
+    transition: all 0.25s linear;
 
     #check {
         cursor: pointer;
@@ -142,6 +156,7 @@ export const taskBtn = styled.div`
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+    transition: all 0.25s linear;
     
     button {
         cursor: pointer;

@@ -5,7 +5,17 @@ import { Link } from 'react-router-dom'
 import { TaskContext } from '../../Context/Context'
 
 export const Home = () => {
-  const {handleLogin, setEmail, setPassword} = useContext(TaskContext)
+  const {handleLogin, setEmail, setPassword, Icon, icon, setIcon, eyeOff, eye, type, setType} = useContext(TaskContext)
+
+  const handleToggle = () => {
+    if (type === 'password') {
+      setIcon(eye)
+      setType('text')
+    } else {
+      setIcon(eyeOff)
+      setType('password')
+    }
+  }
 
   return (
     <H.component>
@@ -31,7 +41,10 @@ export const Home = () => {
 
             <H.inputs>
               <label htmlFor="senha">Digite sua senha</label>
-              <input type="password" placeholder='Password' name='senha' onChange={(e) => setPassword(e.target.value)}/>
+              <input type={type} placeholder='Password' name='senha' onChange={(e) => setPassword(e.target.value)}/>
+              <span>
+                <Icon icon={icon} onClick={handleToggle}/>
+              </span>
             </H.inputs>
 
             <H.forgot>

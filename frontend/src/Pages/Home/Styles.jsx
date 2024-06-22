@@ -133,6 +133,14 @@ export const formInputs = styled.div`
 
 export const inputs = styled.div`
     width: 95%;
+    position: relative;
+
+    span {
+        position: absolute;
+        left: 100%;
+        top: 32px;
+        cursor: pointer;
+    }
 `
 
 export const forgot = styled.div`

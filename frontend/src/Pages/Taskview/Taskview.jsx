@@ -7,9 +7,6 @@ import axios from 'axios'
 export const Taskview = () => {
     const {user, addTask, tasks, setTasks} = useContext(TaskContext)
     const [novaTarefa, setNovaTarefa] = useState([])
-
-    console.log(tasks)
-    
     
     const handleCheck = async (index, isChecked, taskId) => {
       console.log(index, isChecked, taskId)
@@ -37,7 +34,7 @@ export const Taskview = () => {
     }
 
     const taske = (task) => {
-      if (tasks != undefined) {
+      if (tasks !== undefined) {
         setNovaTarefa({id: tasks.length + 1, taskName: task, isChecked: false})
       }
     }

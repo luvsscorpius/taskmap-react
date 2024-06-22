@@ -5,10 +5,20 @@ import { Link } from 'react-router-dom'
 import { TaskContext } from '../../Context/Context'
 
 export const Register = () => {
-  const {addUser} = useContext(TaskContext)
+  const {addUser, Icon, icon, setIcon, eyeOff, eye, type, setType} = useContext(TaskContext)
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
+
+  const handleToggle = () => {
+    if (type === 'password') {
+      setIcon(eye)
+      setType('text')
+    } else {
+      setIcon(eyeOff)
+      setType('password')
+    }
+  }
 
   return (
     <H.component>
@@ -39,7 +49,10 @@ export const Register = () => {
 
             <H.inputs>
               <label htmlFor="">Digite sua senha</label>
-              <input type="password" onChange={(e) => setSenha(e.target.value)} placeholder='Senha' />
+              <input type={type} onChange={(e) => setSenha(e.target.value)} placeholder='Senha' />
+              <span>
+                <Icon icon={icon} onClick={handleToggle}/>
+              </span>
             </H.inputs>
 
             <H.forgot>

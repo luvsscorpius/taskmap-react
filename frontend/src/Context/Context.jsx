@@ -5,6 +5,9 @@ import { toast } from 'react-toastify'
 import { ThemeProvider } from 'styled-components'
 import { darkTheme, lightTheme } from '../Components/Themes'
 import { GlobalStyle } from '../Pages/Home/Styles'
+import {Icon} from 'react-icons-kit';
+import {eyeOff} from 'react-icons-kit/feather/eyeOff';
+import {eye} from 'react-icons-kit/feather/eye'
 
 export const TaskContext = createContext(null)
 
@@ -16,8 +19,11 @@ export const Context = ({children}) => {
     // Toggle button
     const [theme, setTheme] = useState('light')
 
-    const [tasks, setTasks] = useState([
-      ])
+    const [tasks, setTasks] = useState([])
+
+    // Hide and show password
+    const [type, setType] = useState('password')
+    const [icon, setIcon] = useState(eyeOff)
 
     const navigate = useNavigate()
 
@@ -138,7 +144,7 @@ export const Context = ({children}) => {
       }
     }
 
-    const contextValue = {addUser, users, setEmail, setPassword, handleLogin, user, addTask, tasks, setTasks, theme, setTheme}
+    const contextValue = {addUser, users, setEmail, setPassword, handleLogin, user, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType}
     
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>

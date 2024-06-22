@@ -8,14 +8,18 @@ export const buttonContent = styled.div`
     margin: 10px;
 
     input {
-        opacity: 1;
-        width: 0;
-        height: 0;
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2; // Tendo certeza que o input está em cima do slider
+        cursor: pointer;
     }
 
     .slider {
         position: absolute;
-        cursor: pointer;
         top: 0;
         left: 0;
         right: 0;
@@ -35,10 +39,6 @@ export const buttonContent = styled.div`
             transition: .4s;
             border-radius: 50%;
         }
-    }
-
-    input:checked + .slider {
-        background-color: #2196F3;
     }
 
     input:checked + .slider:before {

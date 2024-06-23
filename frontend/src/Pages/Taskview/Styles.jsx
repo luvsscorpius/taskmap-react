@@ -137,18 +137,44 @@ export const taskInfo = styled.div`
     padding-left: 10px;
     align-items: center;
     transition: all 0.25s linear;
+    position: relative;
 
-    #check {
+    input[type="checkbox"] {
         cursor: pointer;
         width: 20px;
         height: 20px;
+        transition: .4s;
+    }
+
+    .slider {
+        position: absolute;
+        height: 2px;
+        background-color: #000;
+        transition: .4s ease;
+        top: 50%;
+        transform: translateX(30px);
+        opacity: 0;
+    }
+
+    input[type="checkbox"]:checked + .slider {
+        opacity: 1;
+        width: 200px;
     }
 
     p {
         font-weight: 600;
-        
+        margin: 0;
+        transition: .4s;
+        position: relative;
+        z-index: 1;
+        width: 300px;
     }
-`
+
+    p.strikethrough {
+        text-decoration: line-through;
+        color: #888; /* Cor do texto riscado */
+    }
+`;
 
 export const taskBtn = styled.div`
     width: 20%;

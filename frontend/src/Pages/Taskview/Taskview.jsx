@@ -54,11 +54,11 @@ export const Taskview = () => {
         <T.tasksContent>
             {tasks === undefined ? 'Não há tarefas' : tasks.map((task) => (
               <T.task key={task.id}>
-                <T.taskInfo>
-                  <input type="checkbox" id="check" checked={task.isChecked} onChange={(index)=> handleCheck(index, task.isChecked, task.id)}  />
-                  <p>{task.id}</p> -
-                  <p>{task.taskName}</p>
-                </T.taskInfo>
+                            <T.taskInfo>
+                                <input type="checkbox" checked={task.isChecked} onChange={() => handleCheck(task.id, task.isChecked, task.id)} />
+                                <span className='slider'></span>
+                                <p className={task.isChecked ? 'strikethrough' : ''}>{task.taskName}</p>
+                            </T.taskInfo>
                 
                 <T.taskBtn>
                   <button><Trash size={22}/></button>

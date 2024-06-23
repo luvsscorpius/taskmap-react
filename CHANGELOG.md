@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.10.0...v1.11.0) (2024-06-23)
+
+
+### Features
+
+* **frontend:** now when you check a task an animation will happen ([ad13602](https://github.com/luvsscorpius/taskmap-react/commit/ad13602a4d51c728fd8939625eca1c8dc414e57c))
+
 # [1.10.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.9.0...v1.10.0) (2024-06-22)
 
 

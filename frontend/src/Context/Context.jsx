@@ -113,11 +113,21 @@ export const Context = ({children}) => {
       try {
         await axios.put(`http://localhost:2000/update/${user._id}`, novaTask, {
           headers: {'Content-Type': 'application/json'}
-        });
+        })
+          .then(res => {
+            if (res.status === 201) {
+              return toast.success('Tarefa Adicionada com Sucesso.')
+            }
+          }) 
+          .catch(error => {
+            return toast.error('Erro:' + error)
+          })
 
         console.log('Tarefa adicionada com sucesso')
+        
       } catch(error) {
         console.error(error)
+        return toast.error('Erro:' + error)
       }
     }
 

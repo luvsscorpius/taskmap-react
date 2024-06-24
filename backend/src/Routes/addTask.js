@@ -15,6 +15,8 @@ router.put('/:user', async (req, res) => {
 
         console.log('Tarefa adicionada com sucesso')
 
+        res.status(201)
+
         res.send(user)
         
     } catch(error) {

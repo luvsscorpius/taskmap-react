@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.11.0...v1.12.0) (2024-06-24)
+
+
+### Features
+
+* **frontend:** frontend/backend - now when you create a task, a pop up (toast)  will apear ([544dfbb](https://github.com/luvsscorpius/taskmap-react/commit/544dfbb7553f136cb88bf7dd08bdb5f95850ea03))
+
 # [1.11.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.10.0...v1.11.0) (2024-06-23)
 
 

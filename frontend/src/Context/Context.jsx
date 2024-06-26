@@ -158,9 +158,21 @@ export const Context = ({children}) => {
     const deleteTask = async (taskId, userId) => {
       console.log('ID da tarefa: ' + taskId + ' ID do usuário: ' + userId)
 
-      // try {
-      //   await axios.delete()
-      // }
+      const userInfo = {
+        taskId: taskId,
+        userId: userId
+      }
+
+      try {
+        await axios.delete(`http://localhost:2000/deleteTask`, JSON.stringify(userInfo), {
+          headers: {'Content-Type': 'application/json'}
+        })
+
+        console.log('Informações enviadas com sucesso.')
+      }
+      catch (error) {
+        console.error(error)
+      }
     }
 
     const contextValue = {addUser, users, setEmail, setPassword, handleLogin, user, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType, deleteTask}

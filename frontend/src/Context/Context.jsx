@@ -154,7 +154,16 @@ export const Context = ({children}) => {
       }
     }
 
-    const contextValue = {addUser, users, setEmail, setPassword, handleLogin, user, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType}
+    // Função para deletar alguma task
+    const deleteTask = async (taskId, userId) => {
+      console.log('ID da tarefa: ' + taskId + ' ID do usuário: ' + userId)
+
+      // try {
+      //   await axios.delete()
+      // }
+    }
+
+    const contextValue = {addUser, users, setEmail, setPassword, handleLogin, user, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType, deleteTask}
     
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>

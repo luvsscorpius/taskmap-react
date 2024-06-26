@@ -5,7 +5,7 @@ import {Trash, Pencil} from 'phosphor-react'
 import axios from 'axios'
 
 export const Taskview = () => {
-    const {user, addTask, tasks, setTasks} = useContext(TaskContext)
+    const {user, addTask, tasks, setTasks, deleteTask} = useContext(TaskContext)
     const [novaTarefa, setNovaTarefa] = useState([])
     
     const handleCheck = async (index, isChecked, taskId) => {
@@ -54,14 +54,14 @@ export const Taskview = () => {
         <T.tasksContent>
             {tasks === undefined ? 'Não há tarefas' : tasks.map((task) => (
               <T.task key={task.id}>
-                            <T.taskInfo>
-                                <input type="checkbox" checked={task.isChecked} onChange={() => handleCheck(task.id, task.isChecked, task.id)} />
-                                <span className='slider'></span>
-                                <p className={task.isChecked ? 'strikethrough' : ''}>{task.taskName}</p>
-                            </T.taskInfo>
+                  <T.taskInfo>
+                      <input type="checkbox" checked={task.isChecked} onChange={() => handleCheck(task.id, task.isChecked, task.id)} />
+                      <span className='slider'></span>
+                      <p className={task.isChecked ? 'strikethrough' : ''}>{task.taskName}</p>
+                  </T.taskInfo>
                 
                 <T.taskBtn>
-                  <button><Trash size={22}/></button>
+                  <button onClick={() => deleteTask(task.id, user._id)}><Trash size={22}/></button>
                   <button><Pencil size={22}/></button>
                 </T.taskBtn>
               </T.task>

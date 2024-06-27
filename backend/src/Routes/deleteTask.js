@@ -26,7 +26,7 @@ router.delete('/:id', async (req, res) => {
                 {$pull: {tasks: findTask}}
             )
             console.log('Tarefa deletada com sucesso')
-            res.status(200).send('Tarefa deletada com sucesso')
+            res.status(200)
         } else {
             console.log('erro')
         }

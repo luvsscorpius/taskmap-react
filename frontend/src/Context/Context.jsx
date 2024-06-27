@@ -169,6 +169,13 @@ export const Context = ({children}) => {
         await axios.delete(`http://localhost:2000/deleteTask/${JSON.stringify(userInfo)}`,  {
           headers: {'Content-Type': 'application/json'}
         })
+        .then(res => {
+          if (res.status === 200) {
+            toast.warning('Tarefa deletada com sucesso')
+          }
+        }) .catch(error => {
+          toast.error('Erro: ', error)
+        })
 
         console.log('Informações enviadas com sucesso.')
       }

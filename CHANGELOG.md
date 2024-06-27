@@ -1,3 +1,14 @@
+# [1.13.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.12.0...v1.13.0) (2024-06-27)
+
+
+### Features
+
+* **backend:** creating a new route to delete task ([3a11cb9](https://github.com/luvsscorpius/taskmap-react/commit/3a11cb9ef3b9548f1257735c3f6bf8cdc1b97982))
+* **backend:** finding the user & task, then using updateOne & $pull to delete ([311a3c8](https://github.com/luvsscorpius/taskmap-react/commit/311a3c8217a2307748092c2bac60fd7c80bb8be4))
+* **frontend:** continuing the deleteTask function ([9c30f4e](https://github.com/luvsscorpius/taskmap-react/commit/9c30f4e56082c9440b2367857aeab5bdfdc86930))
+* **frontend:** creating a new function to delete a task ([97e40f7](https://github.com/luvsscorpius/taskmap-react/commit/97e40f73c3531627e904102877f992148056746a))
+* **frontend:** using toast to warn the client if the task was deleted ([ca69684](https://github.com/luvsscorpius/taskmap-react/commit/ca696848d848c32b6e657a9f3698aa2f59e8758e))
+
 # [1.12.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.11.0...v1.12.0) (2024-06-24)
 
 

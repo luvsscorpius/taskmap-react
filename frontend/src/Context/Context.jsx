@@ -163,8 +163,10 @@ export const Context = ({children}) => {
         userId: userId
       }
 
+      console.log(userInfo)
+
       try {
-        await axios.delete(`http://localhost:2000/deleteTask`, JSON.stringify(userInfo), {
+        await axios.delete(`http://localhost:2000/deleteTask/${JSON.stringify(userInfo)}`,  {
           headers: {'Content-Type': 'application/json'}
         })
 

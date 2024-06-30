@@ -172,6 +172,11 @@ export const Context = ({children}) => {
         .then(res => {
           if (res.status === 200) {
             toast.warning('Tarefa deletada com sucesso')
+
+            // Atualizando no frontend também
+            // Utilizamos o filter aqui para varrer o array e verificar se algum elemento tenha o id igual ao que esta vindo nas props
+            // se retornar true, continuara, se for false eleminaremos
+            setTasks(prevTasks => prevTasks.filter(task => task.id !== taskId))
           }
         }) .catch(error => {
           toast.error('Erro: ', error)

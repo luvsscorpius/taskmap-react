@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.13.0...v1.14.0) (2024-06-30)
+
+
+### Features
+
+* **frontend:** using filter() to delete task on frontend ([07557fc](https://github.com/luvsscorpius/taskmap-react/commit/07557fc146c06a49b750c08f8fbdea00233575d2))
+
 # [1.13.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.12.0...v1.13.0) (2024-06-27)
 
 

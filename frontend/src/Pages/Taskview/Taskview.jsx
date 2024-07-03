@@ -3,10 +3,28 @@ import { TaskContext } from '../../Context/Context'
 import * as T from './Styles'
 import {Trash, Pencil} from 'phosphor-react'
 import axios from 'axios'
+import { toast } from 'react-toastify'
+import ReactPaginate from 'react-paginate'
 
 export const Taskview = () => {
     const {user, addTask, tasks, setTasks, deleteTask} = useContext(TaskContext)
     const [novaTarefa, setNovaTarefa] = useState([])
+
+    // Paginação
+    // State para controlar a paginação
+    const [currentPage, setCurrentPage] = useState(0)
+    // Itens por página
+    const itemsPerPage = 4
+
+    // Função para mudar a páginação
+    const handlePageClick = ({selected}) => {
+      setCurrentPage(selected)
+    }
+
+    // O offset é um indice que aponta para o primeiro elemento que deve ser exibido na página atual. Ele é calculado multiplicando o número da página atual pelo numero de itens da página por exemplo na primeira pagina so teram 10 itens e a próxima página começara pelo item 11.
+    const offset = currentPage * itemsPerPage;
+    //currentPageData é um novo array que contém os dados a serem exibidos na página atual.
+    const currentPageData = tasks.slice(offset, offset + itemsPerPage)
     
     const handleCheck = async (index, isChecked, taskId) => {
       console.log(index, isChecked, taskId)
@@ -19,6 +37,8 @@ export const Taskview = () => {
           await axios.put(`http://localhost:2000/updateTasks/${user._id}`, locatedIndex, {
             headers: {'Content-Type': 'application/json'}
           });
+
+          toast.success('Tarefa atualizada com sucesso.')
   
           console.log('Deu certo')
         } catch(error) {
@@ -52,7 +72,8 @@ export const Taskview = () => {
         </T.inputsContent>
 
         <T.tasksContent>
-            {tasks === undefined ? 'Não há tarefas' : tasks.map((task) => (
+
+            {tasks === undefined ? 'Não há tarefas' : currentPageData.map(task => (
               <T.task key={task.id}>
                   <T.taskInfo>
                       <input type="checkbox" checked={task.isChecked} onChange={() => handleCheck(task.id, task.isChecked, task.id)} />
@@ -66,6 +87,18 @@ export const Taskview = () => {
                 </T.taskBtn>
               </T.task>
             ))}
+
+            <ReactPaginate
+              previousLabel={'<'}
+              nextLabel={'>'}
+              breakLabel={'...'}
+              pageCount={Math.ceil(tasks.length / itemsPerPage)}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={handlePageClick}
+              containerClassName={'paginate'}
+              activeClassName={'active'}
+            />
         </T.tasksContent>
       </T.contents>
     </T.component>

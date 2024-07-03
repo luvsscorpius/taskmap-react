@@ -116,6 +116,32 @@ export const tasksContent = styled.div`
     align-items: center;
     gap: 5px;
     transition: all 0.25s linear;
+
+    .paginate { 
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        text-decoration: none;
+        list-style-type: none;
+        gap: 10px;
+        width: 30%;
+        position: fixed;
+        margin-top: 260px;
+
+        li {
+            border-radius: 50%;
+            width: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: #bbb;
+        }
+    }
 `
 
 export const task = styled.div`

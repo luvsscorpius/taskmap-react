@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.14.0...v1.15.0) (2024-07-03)
+
+
+### Features
+
+* **frontend:** react paginate ([6110094](https://github.com/luvsscorpius/taskmap-react/commit/6110094417ae13e0feae3dde5dce7654b0647030))
+
 # [1.14.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.13.0...v1.14.0) (2024-06-30)
 
 

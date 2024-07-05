@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { TaskContext } from '../../Context/Context'
 import * as T from './Styles'
-import {Trash, Pencil} from 'phosphor-react'
+import {Trash, Pencil, CaretLeft, CaretRight} from 'phosphor-react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import ReactPaginate from 'react-paginate'
@@ -89,15 +89,16 @@ export const Taskview = () => {
             ))}
 
             <ReactPaginate
-              previousLabel={'<'}
-              nextLabel={'>'}
+              previousLabel={<CaretLeft/>}
+              nextLabel={<CaretRight/>}
               breakLabel={'...'}
               pageCount={Math.ceil(tasks.length / itemsPerPage)}
               marginPagesDisplayed={2}
               pageRangeDisplayed={5}
               onPageChange={handlePageClick}
               containerClassName={'paginate'}
-              activeClassName={'active'}
+              activeClassName={'active'} // Classe para quando o item for clicado
+              pageClassName={'page-item'} // Classe para cada item de página
             />
         </T.tasksContent>
       </T.contents>

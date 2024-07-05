@@ -142,6 +142,10 @@ export const tasksContent = styled.div`
             background-color: #bbb;
         }
     }
+
+    .page-item {
+        background-color: ${(props) => props.theme.colors.content};
+    }
 `
 
 export const task = styled.div`

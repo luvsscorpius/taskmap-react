@@ -114,7 +114,7 @@ export const tasksContent = styled.div`
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    gap: 5px;
+    gap: 2px;
     transition: all 0.25s linear;
 
     .paginate { 
@@ -127,7 +127,7 @@ export const tasksContent = styled.div`
         gap: 10px;
         width: 30%;
         position: fixed;
-        margin-top: 260px;
+        margin-top: 253px;
 
         li {
             border-radius: 50%;
@@ -145,6 +145,10 @@ export const tasksContent = styled.div`
 
     .page-item {
         background-color: ${(props) => props.theme.colors.content};
+    }
+
+    .active {
+        background-color: ${(props) => props.theme.colors.maincolor};
     }
 `
 

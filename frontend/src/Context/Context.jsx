@@ -177,6 +177,11 @@ export const Context = ({children}) => {
             // Utilizamos o filter aqui para varrer o array e verificar se algum elemento tenha o id igual ao que esta vindo nas props
             // se retornar true, continuara, se for false eleminaremos
             setTasks(prevTasks => prevTasks.filter(task => task.id !== taskId))
+
+            // Removendo do session storage por conta do useEffect
+            const tasksUpdated = tasks.filter(task => task.id !== taskId)
+            console.log(tasksUpdated)
+            sessionStorage.setItem('tasks', JSON.stringify(tasksUpdated))
           }
         }) .catch(error => {
           toast.error('Erro: ', error)

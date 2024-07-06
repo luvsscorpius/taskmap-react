@@ -71,40 +71,40 @@ export const Context = ({children}) => {
       }
     }
 
-    // Usando o useEffect para manter o usuário logado, juntamente com as tarefas desse usuário
-    // useEffect(() => {
-    //   // Usando a mesma função para manter a página atualizada caso adicione uma tarefa e atualize a página, ele busque novamente na API.
-    //   const fetchData = async () => {
-    //       // Fazer a chamada da api do backend 
-    //     try {
+    //Usando o useEffect para manter o usuário logado, juntamente com as tarefas desse usuário
+    useEffect(() => {
+      // Usando a mesma função para manter a página atualizada caso adicione uma tarefa e atualize a página, ele busque novamente na API.
+      const fetchData = async () => {
+          // Fazer a chamada da api do backend 
+        try {
 
-    //       // Aqui usaremos denovo o axios para consultar as tasks desse usuário
-    //       const res = await axios.get("http://localhost:2000/tasks",
-    //       {
-    //         headers: {'Content-Type': 'application/json'}
-    //       })
+          // Aqui usaremos denovo o axios para consultar as tasks desse usuário
+          const res = await axios.get("http://localhost:2000/tasks",
+          {
+            headers: {'Content-Type': 'application/json'}
+          })
 
-    //       sessionStorage.setItem('tasks', JSON.stringify(res.data[0].tasks))
-    //       const tasks = res.data[0].tasks
-    //       setTasks(tasks)
+          sessionStorage.setItem('tasks', JSON.stringify(res.data[0].tasks))
+          const tasks = res.data[0].tasks
+          setTasks(tasks)
   
-    //       // Caso der algum erro
-    //       } catch (error) {
-    //         console.error(error)
-    //     }
-    //   }
+          // Caso der algum erro
+          } catch (error) {
+            console.error(error)
+        }
+      }
 
-    //   fetchData()
+      fetchData()
 
-    //   const loggedInUser = sessionStorage.getItem('user')
-    //   const tasks = sessionStorage.getItem('tasks')
-    //   if (loggedInUser && tasks) {
-    //     const foundUser = JSON.parse(loggedInUser)
-    //     const foundTasks = JSON.parse(tasks)
-    //     setUser(foundUser)
-    //     setTasks(foundTasks)
-    //   }
-    // }, [])
+      const loggedInUser = sessionStorage.getItem('user')
+      const tasks = sessionStorage.getItem('tasks')
+      if (loggedInUser && tasks) {
+        const foundUser = JSON.parse(loggedInUser)
+        const foundTasks = JSON.parse(tasks)
+        setUser(foundUser)
+        setTasks(foundTasks)
+      }
+    }, [])
 
     const addTask = async (e, novaTask) => {
       e.preventDefault()

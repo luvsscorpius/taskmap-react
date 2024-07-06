@@ -127,7 +127,7 @@ export const tasksContent = styled.div`
         gap: 10px;
         width: 30%;
         position: fixed;
-        margin-top: 253px;
+        margin-top: 250px;
 
         li {
             border-radius: 50%;
@@ -149,6 +149,7 @@ export const tasksContent = styled.div`
 
     .active {
         background-color: ${(props) => props.theme.colors.maincolor};
+        color: #fff;
     }
 `
 

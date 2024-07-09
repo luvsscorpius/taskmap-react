@@ -41,8 +41,6 @@ export const Context = ({ children }) => {
         }
       )
 
-      console.log(response.data)
-
       // Aqui usaremos denovo o axios para consultar as tasks desse usuário
       const res = await axios.get(`http://localhost:2000/tasks/${JSON.stringify(response.data)}`,
         {
@@ -87,6 +85,11 @@ export const Context = ({ children }) => {
         // Tarefas encontradas
         const TasksFound = dataResponse.data[0].tasks
         setTasks(TasksFound)
+        console.log(TasksFound)
+
+        // Encontrando o nome do usuário
+        const userFound = dataResponse.data
+        setUser(userFound)
       } catch (error) {
         console.error(error)
       }
@@ -184,7 +187,7 @@ export const Context = ({ children }) => {
     }
   }
 
-  const contextValue = { addUser, users, setEmail, setPassword, handleLogin, user, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType, deleteTask }
+  const contextValue = { addUser, users, setEmail, setPassword, handleLogin, user, setUser, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType, deleteTask }
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>

@@ -8,6 +8,7 @@ router.put('/:user', async (req, res) => {
         const updatedTask = req.body
         const {user} = req.params
         const userId = new ObjectId(user)
+        console.log(userId)
 
         const db = await Mongo()
         await db.collection('usuarios').updateOne(

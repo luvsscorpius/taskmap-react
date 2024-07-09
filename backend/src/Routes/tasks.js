@@ -23,7 +23,7 @@ router.get('/:user', async (req, res) => {
             } else {
                 console.log('False')
             }
-        })
+        })  
     } catch(error) {
         console.error(error)
     }

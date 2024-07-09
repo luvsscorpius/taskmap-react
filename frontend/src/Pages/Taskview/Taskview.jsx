@@ -16,6 +16,8 @@ export const Taskview = () => {
     // Itens por página
     const itemsPerPage = 4
 
+    console.log(user)
+
     // Função para mudar a páginação
     const handlePageClick = ({selected}) => {
       setCurrentPage(selected)
@@ -28,13 +30,14 @@ export const Taskview = () => {
     
     const handleCheck = async (index, isChecked, taskId) => {
       console.log(index, isChecked, taskId)
+      console.log(user)
 
       const locatedIndex = tasks.find(task => task.id === taskId)
       if (locatedIndex) {
         locatedIndex.isChecked = !isChecked
 
         try {
-          await axios.put(`http://localhost:2000/updateTasks/${user._id}`, locatedIndex, {
+          await axios.put(`http://localhost:2000/updateTasks/${user[0]._id}`, locatedIndex, {
             headers: {'Content-Type': 'application/json'}
           });
 
@@ -63,7 +66,7 @@ export const Taskview = () => {
     <T.component>
       <T.contents>
         <T.title> <h2>TODO LIST</h2>
-          <p>Olá {user.name}! Seja bem-vindo(a) de volta!</p>
+          <p>Olá {user[0].name}! Seja bem-vindo(a) de volta!</p>
         </T.title>
 
         <T.inputsContent>

@@ -1,3 +1,20 @@
+# [1.16.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.15.0...v1.16.0) (2024-07-09)
+
+
+### Bug Fixes
+
+* **backend:** fixing tasks route to return the name of the client ([4e7bd59](https://github.com/luvsscorpius/taskmap-react/commit/4e7bd59272d21708ad370f92c62fec2abec42fb2))
+* **frontend taskview:** fixing problem that wouldnt update task when page was reloaded ([8526473](https://github.com/luvsscorpius/taskmap-react/commit/85264737b0011a46d6bb3097a67009fecf8e6b44))
+* **frontend useeffect:** fixing logic on useEffect to get the tasks everytime page is reload ([860459b](https://github.com/luvsscorpius/taskmap-react/commit/860459be49c3eac6fca9ce9ccf2eb8d6869d00e5))
+* **frontend:** when deleting on DB it wouldnt delete on sessionStorage ([46b2699](https://github.com/luvsscorpius/taskmap-react/commit/46b269971fc567e27c5161d4c265dd22d0d79837))
+
+
+### Features
+
+* **frontend useeffect:** using useEffect again to save userInfo in case page is reloaded ([4fba1fa](https://github.com/luvsscorpius/taskmap-react/commit/4fba1fa9b7b3af06b7cceb1f9719231685319de2))
+* **frontend:** finish styling paginate ([35a85c2](https://github.com/luvsscorpius/taskmap-react/commit/35a85c2ae82240494e5b3a87ca585937bfc39189))
+* **frontend:** react-paginate pageclassName ([e4d898a](https://github.com/luvsscorpius/taskmap-react/commit/e4d898a3fd9e2aefea795e0dfa472268c0e31f5f))
+
 # [1.15.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.14.0...v1.15.0) (2024-07-03)
 
 

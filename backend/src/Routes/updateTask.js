@@ -16,7 +16,7 @@ router.put('/:user', async (req, res) => {
             {_id: userId, 'tasks.id': updatedTask.id}, 
             // Aqui utilizaremos tasks.$ para indicar para o mongo qual elemento do array deve ser atualizado no caso o elemento que veio da requisição.
             {$set: {'tasks.$': updatedTask } })
-        console.log('Tarefa atualizada com sucesso')
+        console.log(`Tarefa ${updatedTask.id} atualizada com sucesso`)
 
         res.send(updatedTask)
     } catch (error) {

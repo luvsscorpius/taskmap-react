@@ -6,7 +6,6 @@ const { ObjectId } = require('mongodb')
 router.get('/:user', async (req, res) => {
     const usuarioId = JSON.parse(req.params.user)
     console.log(usuarioId)
-    console.log('Id do usuário: ', usuarioId._id)
 
     try {
         const db = await Mongo()

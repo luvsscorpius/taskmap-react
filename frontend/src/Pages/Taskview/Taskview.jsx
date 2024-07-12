@@ -85,7 +85,7 @@ export const Taskview = () => {
                   </T.taskInfo>
                 
                 <T.taskBtn>
-                  <button onClick={() => deleteTask(task.id, user._id)}><Trash size={22}/></button>
+                  <button onClick={() => deleteTask(task.id, user._id === undefined ? user[0]._id : user._id)}><Trash size={22}/></button>
                   <button><Pencil size={22}/></button>
                 </T.taskBtn>
               </T.task>

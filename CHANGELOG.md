@@ -1,3 +1,13 @@
+## [1.16.1](https://github.com/luvsscorpius/taskmap-react/compare/v1.16.0...v1.16.1) (2024-07-12)
+
+
+### Bug Fixes
+
+* **frontend addtask or updatetask:** changing the params on the url to use either states ([4381354](https://github.com/luvsscorpius/taskmap-react/commit/438135407c54ccea9c98ecb8acc63c258ef0744c))
+* **frontend context:** fixing function addTask, the url will use user[0]._id or user._id ([3289f9f](https://github.com/luvsscorpius/taskmap-react/commit/3289f9fe973feb5e75a0d3afa6d273b98312d59b))
+* **frontend deletetask:** passing either user._id or user[0]._id in case page is reloaded ([ddff737](https://github.com/luvsscorpius/taskmap-react/commit/ddff7378f417ad1f004f70c9b4c0db937e37bb85))
+* **frontend taskview:** using user.name or user[0].name in case either causes bug ([ee8ff18](https://github.com/luvsscorpius/taskmap-react/commit/ee8ff18bd88c0b03cd1d34651ac993517d330f5e))
+
 # [1.16.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.15.0...v1.16.0) (2024-07-09)
 
 

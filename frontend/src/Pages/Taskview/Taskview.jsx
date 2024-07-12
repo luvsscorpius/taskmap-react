@@ -66,7 +66,7 @@ export const Taskview = () => {
     <T.component>
       <T.contents>
         <T.title> <h2>TODO LIST</h2>
-          <p>Olá {user[0].name}! Seja bem-vindo(a) de volta!</p>
+          <p>Olá {user.name || user[0].name}! Seja bem-vindo(a) de volta!</p>
         </T.title>
 
         <T.inputsContent>

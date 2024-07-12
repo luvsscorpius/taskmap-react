@@ -37,7 +37,7 @@ export const Taskview = () => {
         locatedIndex.isChecked = !isChecked
 
         try {
-          await axios.put(`http://localhost:2000/updateTasks/${user[0]._id}`, locatedIndex, {
+          await axios.put(`http://localhost:2000/updateTasks/${user._id === undefined ? user[0]._id : user._id}`, locatedIndex, {
             headers: {'Content-Type': 'application/json'}
           });
 

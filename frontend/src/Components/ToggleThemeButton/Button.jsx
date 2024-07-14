@@ -5,11 +5,11 @@ import {FaSun, FaMoon} from 'react-icons/fa'
 
 export const ButtonTheme = () => {
 
-    const {theme, setTheme} = useContext(TaskContext)
+    const {updateTheme} = useContext(TaskContext)
 
   return (
     <B.buttonContent>
-        <input type="checkbox" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}  />
+        <input type="checkbox" onClick={updateTheme}  />
         <span className="slider">
           <div className="icons">
               <FaSun/>

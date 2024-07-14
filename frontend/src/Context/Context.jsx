@@ -58,6 +58,9 @@ export const Context = ({ children }) => {
       console.log(response.data)
       navigate('/taskview')
 
+      setTheme(response.data.theme)
+      console.log(theme)
+
       // Caso der algum erro
     } catch (error) {
       if (!error?.response) {
@@ -71,6 +74,8 @@ export const Context = ({ children }) => {
       }
     }
   }
+
+  console.log(theme)
 
   //Usando o useEffect para manter o usuário logado, juntamente com as tarefas desse usuário
   useEffect(() => {
@@ -90,6 +95,10 @@ export const Context = ({ children }) => {
         // Encontrando o nome do usuário
         const userFound = dataResponse.data
         setUser(userFound)
+
+        // Atualizando o tema 
+        const themeFound = dataResponse.data[0].theme
+        setTheme(themeFound)
       } catch (error) {
         console.error(error)
       }
@@ -128,7 +137,7 @@ export const Context = ({ children }) => {
     e.preventDefault()
 
     // Mandando um array vazio para cada usuário que for criado para não dar erro na hora de ler as supostas tasks que o usuário ainda não tem.
-    const user = { name: nome, email: email, password: senha, tasks: [] }
+    const user = { name: nome, email: email, password: senha, theme: theme, tasks: [] }
     console.log(user)
 
     try {
@@ -187,7 +196,30 @@ export const Context = ({ children }) => {
     }
   }
 
-  const contextValue = { addUser, users, setEmail, setPassword, handleLogin, user, setUser, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType, deleteTask }
+  // Função para trocar o tema do app no front & back
+  const updateTheme = async () => {
+    console.log('Troquei')
+    const userInfo = user[0]
+
+    try {
+      await axios.put(`http://localhost:2000/updateTheme/${user._id === undefined ? user[0]._id : user._id}`, user === undefined ? userInfo : user, {
+        headers: {'Content-Type': 'application/json'}
+      })
+      .then(res => {
+        console.log(res.status)
+        if (res.status === 200) {
+          setTheme(theme === 'light' ? 'dark' : 'light')
+          toast.success(`Atualizado para o tema ${theme === 'light' ? 'dark' : 'light'}`)
+        }
+      }).catch(error => {
+        toast.error('Erro: ', error)
+      })
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const contextValue = { addUser, users, setEmail, setPassword, handleLogin, user, setUser, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType, deleteTask, updateTheme }
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>

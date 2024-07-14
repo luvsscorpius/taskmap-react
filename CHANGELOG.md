@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.16.1...v1.17.0) (2024-07-14)
+
+
+### Features
+
+* **frontend/backend:** creating a function that will change the theme on frontend & backend ([b517abb](https://github.com/luvsscorpius/taskmap-react/commit/b517abb27209f3b04933756b63ee506c2da4023a))
+
 ## [1.16.1](https://github.com/luvsscorpius/taskmap-react/compare/v1.16.0...v1.16.1) (2024-07-12)
 
 

@@ -25,6 +25,9 @@ export const Context = ({ children }) => {
   const [type, setType] = useState('password')
   const [icon, setIcon] = useState(eyeOff)
 
+  // State to manipulate the button Checked input theme
+  const [isChecked, setIsChecked] = useState(false)
+
   const navigate = useNavigate()
 
   const handleLogin = async (e) => {
@@ -75,8 +78,6 @@ export const Context = ({ children }) => {
     }
   }
 
-  console.log(theme)
-
   //Usando o useEffect para manter o usuário logado, juntamente com as tarefas desse usuário
   useEffect(() => {
 
@@ -99,6 +100,10 @@ export const Context = ({ children }) => {
         // Atualizando o tema 
         const themeFound = dataResponse.data[0].theme
         setTheme(themeFound)
+        // using this condition to manipulate the theme button
+        if (themeFound === 'dark') {
+          setIsChecked(true)
+        }
       } catch (error) {
         console.error(error)
       }
@@ -198,8 +203,7 @@ export const Context = ({ children }) => {
 
   // Função para trocar o tema do app no front & back
   const updateTheme = async () => {
-    console.log('Troquei')
-    const userInfo = user[0]
+    const userInfo = user[0] || user
 
     try {
       await axios.put(`http://localhost:2000/updateTheme/${user._id === undefined ? user[0]._id : user._id}`, user === undefined ? userInfo : user, {
@@ -209,6 +213,8 @@ export const Context = ({ children }) => {
         console.log(res.status)
         if (res.status === 200) {
           setTheme(theme === 'light' ? 'dark' : 'light')
+          // using this to manipulate the theme button
+          setIsChecked(prevIsChecked => !prevIsChecked)
           toast.success(`Atualizado para o tema ${theme === 'light' ? 'dark' : 'light'}`)
         }
       }).catch(error => {
@@ -219,7 +225,7 @@ export const Context = ({ children }) => {
     }
   }
 
-  const contextValue = { addUser, users, setEmail, setPassword, handleLogin, user, setUser, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType, deleteTask, updateTheme }
+  const contextValue = { addUser, users, setEmail, setPassword, handleLogin, user, setUser, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType, deleteTask, updateTheme, isChecked }
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>

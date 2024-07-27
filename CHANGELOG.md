@@ -1,3 +1,10 @@
+## [1.17.1](https://github.com/luvsscorpius/taskmap-react/compare/v1.17.0...v1.17.1) (2024-07-27)
+
+
+### Bug Fixes
+
+* **button theme:** creating a state isChecked to manipulate button depending on which is the theme ([27944ae](https://github.com/luvsscorpius/taskmap-react/commit/27944ae664eaa37d64546cb6df4538a9f788d026))
+
 # [1.17.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.16.1...v1.17.0) (2024-07-14)
 
 

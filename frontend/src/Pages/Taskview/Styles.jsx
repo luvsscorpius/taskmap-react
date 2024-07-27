@@ -21,6 +21,10 @@ export const component = styled.div`
     align-items: center;
     justify-content: center;
     transition: all 0.25s linear;
+
+    @media (max-width: 700px) {
+        height: 90vh;
+    }
 `
 
 export const contents = styled.div`
@@ -34,6 +38,11 @@ export const contents = styled.div`
     box-shadow: 4px 4px ${(props) => props.theme.colors.maincolor};
     color: ${(props) => props.theme.colors.fontcolor};
     transition: all 0.25s linear;
+
+    @media (max-width: 700px) {
+        width: 90%;
+        height: 405px;
+    }
 `
 
 export const title = styled.div`
@@ -45,6 +54,10 @@ export const title = styled.div`
 
     p {
         font-size: 18px;
+    }
+
+    @media (max-width: 700px) {
+        height: 70px;
     }
 ` 
 
@@ -102,6 +115,10 @@ export const inputsContent = styled.form`
             transform: translate(0px, 1px);
         }
     }
+
+    @media (max-width: 700px) {
+        width: 95%;
+    }
 `
 
 export const tasksContent = styled.div`
@@ -150,6 +167,10 @@ export const tasksContent = styled.div`
     .active {
         background-color: ${(props) => props.theme.colors.maincolor};
         color: #fff;
+    }
+
+    @media (max-width: 700px) {
+        width: 95%;
     }
 `
 
@@ -209,6 +230,16 @@ export const taskInfo = styled.div`
         text-decoration: line-through;
         color: #888; /* Cor do texto riscado */
     }
+
+    @media (max-width: 700px) {
+        width: 75%;
+        word-wrap: wrap;
+
+        input[type="checkbox"]:checked + .slider {
+            opacity: 1;
+            width: 150px;
+        }
+    }
 `;
 
 export const taskBtn = styled.div`
@@ -223,6 +254,12 @@ export const taskBtn = styled.div`
         cursor: pointer;
         border: 0;
         width: 35%;
+    }
+
+    @media (max-width: 700px) {
+        button {
+            width: 50%;
+        }
     }
 `
 

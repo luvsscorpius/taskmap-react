@@ -23,6 +23,7 @@ export const component = styled.div`
     justify-content: center;
     color: ${(props) => props.theme.colors.fontcolor};
     transition: all 0.25s linear;
+
 `
 
 export const contents = styled.div`
@@ -31,6 +32,10 @@ export const contents = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 700px) {
+        flex-direction: column;
+    }
 `
 
 export const logoItems = styled.div`    
@@ -51,6 +56,15 @@ export const logoItems = styled.div`
     p {
         font-size: 15px;
     }
+
+    @media (max-width: 700px) {
+        margin-bottom: 20px;
+        width: 90%;
+
+        img {
+            display: none;
+        }
+    }
 ` 
 
 export const formItems = styled.form`
@@ -65,6 +79,10 @@ export const formItems = styled.form`
     align-items: center;
     justify-content: center;
     border-radius: 5px;
+
+    @media (max-width: 700px) {
+        width: 80%;
+    }
 `
 
 export const formItemsButtons = styled.div`

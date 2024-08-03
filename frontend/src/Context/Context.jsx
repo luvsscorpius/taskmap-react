@@ -203,25 +203,32 @@ export const Context = ({ children }) => {
 
   // Função para trocar o tema do app no front & back
   const updateTheme = async () => {
-    const userInfo = user[0] || user
-
-    try {
-      await axios.put(`http://localhost:2000/updateTheme/${user._id === undefined ? user[0]._id : user._id}`, user === undefined ? userInfo : user, {
-        headers: {'Content-Type': 'application/json'}
-      })
-      .then(res => {
-        console.log(res.status)
-        if (res.status === 200) {
-          setTheme(theme === 'light' ? 'dark' : 'light')
+    // Usando essa condição para ver se existe algum usuário, se não para conseguir mudar o tema mesmo não estando logado.
+    if (user === null) {
+        setTheme(theme === 'light' ? 'dark' : 'light')
           // using this to manipulate the theme button
           setIsChecked(prevIsChecked => !prevIsChecked)
           toast.success(`Atualizado para o tema ${theme === 'light' ? 'dark' : 'light'}`)
-        }
-      }).catch(error => {
-        toast.error('Erro: ', error)
-      })
-    } catch (error) {
-      console.error(error)
+    } else {
+      try {
+        const userInfo = user[0] || user
+        await axios.put(`http://localhost:2000/updateTheme/${user._id === undefined ? user[0]._id : user._id}`, user === undefined ? userInfo : user, {
+          headers: {'Content-Type': 'application/json'}
+        })
+        .then(res => {
+          console.log(res.status)
+          if (res.status === 200) {
+            setTheme(theme === 'light' ? 'dark' : 'light')
+            // using this to manipulate the theme button
+            setIsChecked(prevIsChecked => !prevIsChecked)
+            toast.success(`Atualizado para o tema ${theme === 'light' ? 'dark' : 'light'}`)
+          } 
+        }).catch(error => {
+          toast.error('Erro: ', error)
+        })
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 

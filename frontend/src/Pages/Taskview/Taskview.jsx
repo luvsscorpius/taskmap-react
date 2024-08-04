@@ -60,6 +60,16 @@ export const Taskview = () => {
       }
     }
 
+    // Update task
+    const [isReadOnly, setReadOnly] = useState(true)
+    const [editingTaskId, setEditingTaskId] = useState(null)
+
+    const updateTask = (tarefa) => {
+      console.log(tarefa)
+      setEditingTaskId(tarefa)
+      setReadOnly(false)
+    }
+
   return (
     <T.component>
       <T.contents>
@@ -79,12 +89,12 @@ export const Taskview = () => {
                   <T.taskInfo>
                       <input type="checkbox" checked={task.isChecked} onChange={() => handleCheck(task.id, task.isChecked, task.id)} />
                       <span className='slider'></span>
-                      <input className={task.isChecked ? 'strikethrough' : ''} value={task.taskName} readOnly/>
+                      <input className={task.isChecked ? 'strikethrough' : ''} value={task.taskName} readOnly={!(editingTaskId === task.id && !isReadOnly)}/>
                   </T.taskInfo>
                 
                 <T.taskBtn>
                   <button onClick={() => deleteTask(task.id, user._id === undefined ? user[0]._id : user._id)}><Trash size={22}/></button>
-                  <button ><Pencil size={22}/></button>
+                  <button onClick={(e) => updateTask(task.id)}><Pencil size={22}/></button>
                 </T.taskBtn>
               </T.task>
             ))}

@@ -5,7 +5,6 @@ import {Trash, Pencil, CaretLeft, CaretRight} from 'phosphor-react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import ReactPaginate from 'react-paginate'
-import { MyModal } from '../../Components/Modal/Modal'
 
 export const Taskview = () => {
     const {user, addTask, tasks, setTasks, deleteTask} = useContext(TaskContext)
@@ -21,12 +20,6 @@ export const Taskview = () => {
     const handlePageClick = ({selected}) => {
       setCurrentPage(selected)
     }
-
-    //Modal
-    const [show, setShow] = useState(false)
-
-    const handleClose = () => setShow(false)
-    const handleShow = () => setShow(true)
 
     // O offset é um indice que aponta para o primeiro elemento que deve ser exibido na página atual. Ele é calculado multiplicando o número da página atual pelo numero de itens da página por exemplo na primeira pagina so teram 10 itens e a próxima página começara pelo item 11.
     const offset = currentPage * itemsPerPage;
@@ -91,7 +84,7 @@ export const Taskview = () => {
                 
                 <T.taskBtn>
                   <button onClick={() => deleteTask(task.id, user._id === undefined ? user[0]._id : user._id)}><Trash size={22}/></button>
-                  <button onClick={handleShow} ><Pencil size={22}/></button>
+                  <button ><Pencil size={22}/></button>
                 </T.taskBtn>
               </T.task>
             ))}
@@ -110,8 +103,6 @@ export const Taskview = () => {
             />
         </T.tasksContent>
       </T.contents>
-
-      <MyModal show={show} handleClose={handleClose}/>
     </T.component>
   )
 }

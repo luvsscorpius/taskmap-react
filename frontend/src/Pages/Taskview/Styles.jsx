@@ -227,6 +227,7 @@ export const taskInfo = styled.div`
         z-index: 1;
         width: 300px;
         font-size: 17px;
+        color: ${(props) => props.theme.colors.fontcolor}
     }
 
     p.strikethrough {

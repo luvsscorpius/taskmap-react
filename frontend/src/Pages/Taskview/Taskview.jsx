@@ -70,6 +70,23 @@ export const Taskview = () => {
       setReadOnly(false)
     }
 
+    const handleTaskChange = (e, taskId) => {
+      // Ele varre todas as tarefas
+      const updatedTasks = tasks.map(task => {
+        // Aqui ele verifica se o id da tarefa clicada é a mesma
+        if (task.id === taskId) {
+          // ele retorna o spread (a mesma tarefa), e da a opção de mudar o value da tarefa
+          return {...task, taskName: e.target.value}
+        }
+        return task;
+      })
+      setTasks(updatedTasks)
+      if (e.key === 'Enter') {
+        console.log('Tarefa atualizada com sucesso')
+        setReadOnly(true)
+      }
+    }
+
   return (
     <T.component>
       <T.contents>
@@ -89,7 +106,7 @@ export const Taskview = () => {
                   <T.taskInfo>
                       <input type="checkbox" checked={task.isChecked} onChange={() => handleCheck(task.id, task.isChecked, task.id)} />
                       <span className='slider'></span>
-                      <input className={task.isChecked ? 'strikethrough' : ''} value={task.taskName} readOnly={!(editingTaskId === task.id && !isReadOnly)}/>
+                      <input className={task.isChecked ? 'strikethrough' : ''} value={task.taskName} readOnly={!(editingTaskId === task.id && !isReadOnly)} onChange={(e) => handleTaskChange(e, task.id)} onKeyDown={(e) => handleTaskChange(e, task.id)}/>
                   </T.taskInfo>
                 
                 <T.taskBtn>

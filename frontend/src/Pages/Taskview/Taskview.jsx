@@ -79,7 +79,7 @@ export const Taskview = () => {
                   <T.taskInfo>
                       <input type="checkbox" checked={task.isChecked} onChange={() => handleCheck(task.id, task.isChecked, task.id)} />
                       <span className='slider'></span>
-                      <p className={task.isChecked ? 'strikethrough' : ''}>{task.taskName}</p>
+                      <input className={task.isChecked ? 'strikethrough' : ''} value={task.taskName} readOnly/>
                   </T.taskInfo>
                 
                 <T.taskBtn>

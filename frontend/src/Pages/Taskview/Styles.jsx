@@ -217,13 +217,16 @@ export const taskInfo = styled.div`
         width: 200px;
     }
 
-    p {
+    input {
+        background-color: ${(props) => props.theme.colors.taskinfo};
+        border: 0;
         font-weight: 600;
         margin: 0;
         transition: .4s;
         position: relative;
         z-index: 1;
         width: 300px;
+        font-size: 17px;
     }
 
     p.strikethrough {

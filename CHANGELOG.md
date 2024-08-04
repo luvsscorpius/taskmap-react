@@ -1,3 +1,19 @@
+# [1.18.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.17.1...v1.18.0) (2024-08-04)
+
+
+### Bug Fixes
+
+* **frontend:** now the readOnly will be false only to the task you clicked ([a0020d8](https://github.com/luvsscorpius/taskmap-react/commit/a0020d812f751a83b680aca7667e672f2818bdf9))
+* **frontend:** updatetheme - using a conditional to check if there is a user logged in ([2eb3745](https://github.com/luvsscorpius/taskmap-react/commit/2eb37451524e3a8ff5030044ee7a1a5d3e669aa9))
+
+
+### Features
+
+* **frontend:** changing p from taskview to input ([efafe35](https://github.com/luvsscorpius/taskmap-react/commit/efafe350b9186acc404a025f28bd3d56c3ebfc08))
+* **frontend:** deleting modal ([7186e07](https://github.com/luvsscorpius/taskmap-react/commit/7186e0771ee6639718eb5f8083dece2a49c57b5b))
+* **frontend:** importing bootstrap modal ([f73ed24](https://github.com/luvsscorpius/taskmap-react/commit/f73ed24b202afa0d26f000c40b3fb47b3e019080))
+* **frontend:** updating input value on frontend ([3e3a754](https://github.com/luvsscorpius/taskmap-react/commit/3e3a754dd7c02b1bf46b161e2c026351ea027ee7))
+
 ## [1.17.1](https://github.com/luvsscorpius/taskmap-react/compare/v1.17.0...v1.17.1) (2024-07-27)
 
 

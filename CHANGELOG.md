@@ -1,3 +1,12 @@
+# [1.19.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.18.0...v1.19.0) (2024-08-06)
+
+
+### Features
+
+* **backend routes:** creating a new route to updateTasks ([29bcd14](https://github.com/luvsscorpius/taskmap-react/commit/29bcd14e27678c74b9586a9a6145225f89eb82e7))
+* **backend:** continuing the updateTaskInfo route ([2e6c953](https://github.com/luvsscorpius/taskmap-react/commit/2e6c9533ad82678ba47066a62cfde9065b3d72bf))
+* **frontend:** using .then and .catch to see if the status = 201 to use toast ([1d0e492](https://github.com/luvsscorpius/taskmap-react/commit/1d0e49230aede93c4a3991c3152ae3f687c7cafb))
+
 # [1.18.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.17.1...v1.18.0) (2024-08-04)
 
 

@@ -90,13 +90,23 @@ export const Taskview = () => {
       })
 
       if (e.key === 'Enter') {
+        // Utilizando esse endPoint para atualizar a tarefa
         try {
           console.log(updatedTask)
           await axios.put(`http://localhost:2000/updateTasksInfo/${user._id === undefined ? user[0]._id : user._id}`, updatedTask, {
             headers: {'Content-Type': 'application/json'}
           })
-          console.log('Tarefa atualizada com sucesso')
-          setReadOnly(true)
+          .then(res => {
+            console.log(res.status)
+            if (res.status === 201) {
+              toast.success('Tarefa atualizada com sucesso!')
+              console.log('Tarefa atualizada com sucesso')
+              setReadOnly(true)
+            }
+          })
+          .catch (error => {
+            toast.error('Erro: ' + error)
+          })
         } catch (error) {
           console.error(error)
         }

@@ -24,6 +24,7 @@ const updateTasks = require('./Routes/updateTask')
 const createUser = require('./Routes/createUser')
 const deleteTask = require('./Routes/deleteTask')
 const updateTheme = require('./Routes/updateTheme')
+const updateTaskInfo = require('./Routes/UpdateTaskInfo')
 
 // Usando as rotas
 app.use('/', indexRouter)
@@ -35,5 +36,6 @@ app.use('/updateTasks', updateTasks)
 app.use('/createuser', createUser)
 app.use('/deleteTask', deleteTask)
 app.use('/updateTheme', updateTheme)
+app.use('/updateTasksInfo', updateTaskInfo)
 
 app.listen(2000, () => console.log('Ouvindo na porta 2000'))

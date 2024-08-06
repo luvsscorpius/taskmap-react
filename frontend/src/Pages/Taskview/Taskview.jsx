@@ -63,6 +63,7 @@ export const Taskview = () => {
     // Update task
     const [isReadOnly, setReadOnly] = useState(true)
     const [editingTaskId, setEditingTaskId] = useState(null)
+    const [updatedTask, setUpdatedTask] = useState({})
 
     const updateTask = (tarefa) => {
       console.log(tarefa)
@@ -70,7 +71,7 @@ export const Taskview = () => {
       setReadOnly(false)
     }
 
-    const handleTaskChange = (e, taskId) => {
+    const handleTaskChange = async (e, taskId) => {
       // Ele varre todas as tarefas
       const updatedTasks = tasks.map(task => {
         // Aqui ele verifica se o id da tarefa clicada é a mesma
@@ -81,9 +82,24 @@ export const Taskview = () => {
         return task;
       })
       setTasks(updatedTasks)
+
+      const findTask = updatedTasks.map(task => {
+        if (task.id === taskId) {
+          setUpdatedTask(task)
+        }
+      })
+
       if (e.key === 'Enter') {
-        console.log('Tarefa atualizada com sucesso')
-        setReadOnly(true)
+        try {
+          console.log(updatedTask)
+          await axios.put(`http://localhost:2000/updateTasksInfo/${user._id === undefined ? user[0]._id : user._id}`, updatedTask, {
+            headers: {'Content-Type': 'application/json'}
+          })
+          console.log('Tarefa atualizada com sucesso')
+          setReadOnly(true)
+        } catch (error) {
+          console.error(error)
+        }
       }
     }
 

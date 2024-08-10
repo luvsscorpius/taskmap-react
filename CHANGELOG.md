@@ -1,3 +1,11 @@
+# [1.21.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.20.0...v1.21.0) (2024-08-10)
+
+
+### Features
+
+* **gh pages:** gh pages ([2f05220](https://github.com/luvsscorpius/taskmap-react/commit/2f05220ae57b2096deaf2438541833bc9db19b00))
+* **gh pages:** gh pages ([c21b980](https://github.com/luvsscorpius/taskmap-react/commit/c21b9807690f6023a73d8710505583b044364512))
+
 # [1.20.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.19.0...v1.20.0) (2024-08-10)
 
 

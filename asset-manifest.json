@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/chic-closet/static/css/main.f029a054.css",
+    "main.js": "/chic-closet/static/js/main.c487aa86.js",
+    "static/media/logo.png": "/chic-closet/static/media/logo.759b832a33bbd02f3b06.png",
+    "index.html": "/chic-closet/index.html",
+    "main.f029a054.css.map": "/chic-closet/static/css/main.f029a054.css.map",
+    "main.c487aa86.js.map": "/chic-closet/static/js/main.c487aa86.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f029a054.css",
+    "static/js/main.c487aa86.js"
+  ]
+}

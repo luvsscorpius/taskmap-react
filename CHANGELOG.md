@@ -1,3 +1,11 @@
+## [1.22.1](https://github.com/luvsscorpius/taskmap-react/compare/v1.22.0...v1.22.1) (2024-08-10)
+
+
+### Bug Fixes
+
+* **package.json:** homepage ([5c2886b](https://github.com/luvsscorpius/taskmap-react/commit/5c2886b3e030a8a508e1046a57917ddf97cce858))
+* **package.json:** homepage ([f3ac6d4](https://github.com/luvsscorpius/taskmap-react/commit/f3ac6d4dfa255ad000b8382106537b4e672f9cf1))
+
 # [1.22.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.21.0...v1.22.0) (2024-08-10)
 
 

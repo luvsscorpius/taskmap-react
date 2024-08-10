@@ -1,3 +1,11 @@
+# [1.20.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.19.0...v1.20.0) (2024-08-10)
+
+
+### Features
+
+* **frontend:** icon ([3494ab7](https://github.com/luvsscorpius/taskmap-react/commit/3494ab79806039b30527d7fb23ce97ae6cff583b))
+* **frontend:** input placeholder ([3e8488d](https://github.com/luvsscorpius/taskmap-react/commit/3e8488d80edf98a6bfb6f06428d0bc1b1a788e00))
+
 # [1.19.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.18.0...v1.19.0) (2024-08-06)
 
 

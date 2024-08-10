@@ -122,7 +122,7 @@ export const Taskview = () => {
 
         <T.inputsContent>
           <button onClick={(e) => addTask(e, novaTarefa)}>Add Task</button>
-          <input type="text" onChange={(e) => taske(e.target.value)} />
+          <input type="text" placeholder='what needs to be done?' onChange={(e) => taske(e.target.value)} />
         </T.inputsContent>
 
         <T.tasksContent>

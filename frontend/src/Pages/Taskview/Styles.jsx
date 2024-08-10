@@ -258,6 +258,8 @@ export const taskBtn = styled.div`
         cursor: pointer;
         border: 0;
         width: 35%;
+        background-color: transparent;
+        color: ${(props) => props.theme.colors.fontcolor};
     }
 
     @media (max-width: 700px) {

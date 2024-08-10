@@ -1,3 +1,10 @@
+## [1.23.2](https://github.com/luvsscorpius/taskmap-react/compare/v1.23.1...v1.23.2) (2024-08-10)
+
+
+### Bug Fixes
+
+* **deleting index:** deleting index ([786bae0](https://github.com/luvsscorpius/taskmap-react/commit/786bae046ad9993b986135db4ff7c2786e6fb052))
+
 ## [1.23.1](https://github.com/luvsscorpius/taskmap-react/compare/v1.23.0...v1.23.1) (2024-08-10)
 
 

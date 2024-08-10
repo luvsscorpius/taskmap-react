@@ -1,3 +1,15 @@
+# [1.23.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.22.4...v1.23.0) (2024-08-10)
+
+
+### Bug Fixes
+
+* **gh pages:** gh pages bug ([7b35072](https://github.com/luvsscorpius/taskmap-react/commit/7b35072979677b8e36313da9532fd2af8341abe2))
+
+
+### Features
+
+* **backend:** index ([3292c32](https://github.com/luvsscorpius/taskmap-react/commit/3292c322c230a3ebed835cc33d5177b4d2e01c1d))
+
 ## [1.22.4](https://github.com/luvsscorpius/taskmap-react/compare/v1.22.3...v1.22.4) (2024-08-10)
 
 

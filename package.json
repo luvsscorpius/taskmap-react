@@ -1,7 +1,6 @@
 {
   "name": "taskmap-react",
   "version": "1.19.0",
-  "homepage": "http://luvsscorpius.github.io/taskmap",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

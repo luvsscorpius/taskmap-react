@@ -1,3 +1,10 @@
+## [1.24.2](https://github.com/luvsscorpius/taskmap-react/compare/v1.24.1...v1.24.2) (2024-08-11)
+
+
+### Bug Fixes
+
+* **backend:** server.js port ([eb3e3a4](https://github.com/luvsscorpius/taskmap-react/commit/eb3e3a447e7107884547efc6902eea8abd0d7ea0))
+
 ## [1.24.1](https://github.com/luvsscorpius/taskmap-react/compare/v1.24.0...v1.24.1) (2024-08-11)
 
 

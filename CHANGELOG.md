@@ -1,3 +1,11 @@
+# [1.24.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.23.4...v1.24.0) (2024-08-11)
+
+
+### Features
+
+* **backend:** vercel file ([0d81257](https://github.com/luvsscorpius/taskmap-react/commit/0d81257be15761934d824d1243edd16e2fdebcd8))
+* **backend:** vercel file ([c39ef1f](https://github.com/luvsscorpius/taskmap-react/commit/c39ef1fe476aafa0d6d961ad46870309cf3d456c))
+
 ## [1.23.4](https://github.com/luvsscorpius/taskmap-react/compare/v1.23.3...v1.23.4) (2024-08-11)
 
 

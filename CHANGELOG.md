@@ -1,3 +1,10 @@
+## [1.24.5](https://github.com/luvsscorpius/taskmap-react/compare/v1.24.4...v1.24.5) (2024-08-11)
+
+
+### Bug Fixes
+
+* **vercel file:** vercel file ([842941b](https://github.com/luvsscorpius/taskmap-react/commit/842941be85b5b513a4a2d05d9b22924be9d75594))
+
 ## [1.24.4](https://github.com/luvsscorpius/taskmap-react/compare/v1.24.3...v1.24.4) (2024-08-11)
 
 

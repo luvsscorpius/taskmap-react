@@ -84,7 +84,7 @@ export const Context = ({ children }) => {
     // Usando uma função assíncrona para receber os dados da requisição
     const fetchData = async (req, res) => {
       try {
-        const dataResponse = await axios.get(`http://localhost:2000/tasks/${user}`, {
+        const dataResponse = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${user}`, {
           headers: {'Content-Type': 'application/json'}
         })
 
@@ -118,7 +118,7 @@ export const Context = ({ children }) => {
     setTasks([...tasks, novaTask])
 
     try {
-      await axios.put(`http://localhost:2000/update/${user._id === undefined ? user[0]._id : user._id}`, novaTask, {
+      await axios.put(`https://taskmap-react-daji.vercel.app/update/${user._id === undefined ? user[0]._id : user._id}`, novaTask, {
         headers: { 'Content-Type': 'application/json' }
       })
         .then(res => {
@@ -146,7 +146,7 @@ export const Context = ({ children }) => {
     console.log(user)
 
     try {
-      await axios.post(`http://localhost:2000/createuser`, JSON.stringify(user), {
+      await axios.post(`https://taskmap-react-daji.vercel.app/createuser`, JSON.stringify(user), {
         headers: { 'Content-Type': 'application/json' }
       })
       toast.success('Usuário criado com sucesso', {
@@ -173,7 +173,7 @@ export const Context = ({ children }) => {
     console.log(userInfo)
 
     try {
-      await axios.delete(`http://localhost:2000/deleteTask/${JSON.stringify(userInfo)}`, {
+      await axios.delete(`https://taskmap-react-daji.vercel.app/deleteTask/${JSON.stringify(userInfo)}`, {
         headers: { 'Content-Type': 'application/json' }
       })
         .then(res => {
@@ -212,7 +212,7 @@ export const Context = ({ children }) => {
     } else {
       try {
         const userInfo = user[0] || user
-        await axios.put(`http://localhost:2000/updateTheme/${user._id === undefined ? user[0]._id : user._id}`, user === undefined ? userInfo : user, {
+        await axios.put(`https://taskmap-react-daji.vercel.app/updateTheme/${user._id === undefined ? user[0]._id : user._id}`, user === undefined ? userInfo : user, {
           headers: {'Content-Type': 'application/json'}
         })
         .then(res => {

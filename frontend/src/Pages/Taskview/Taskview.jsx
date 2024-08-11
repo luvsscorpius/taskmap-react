@@ -35,7 +35,7 @@ export const Taskview = () => {
         locatedIndex.isChecked = !isChecked
 
         try {
-          await axios.put(`http://localhost:2000/updateTasks/${user._id === undefined ? user[0]._id : user._id}`, locatedIndex, {
+          await axios.put(`https://taskmap-react-daji.vercel.app/updateTasks/${user._id === undefined ? user[0]._id : user._id}`, locatedIndex, {
             headers: {'Content-Type': 'application/json'}
           });
 
@@ -93,7 +93,7 @@ export const Taskview = () => {
         // Utilizando esse endPoint para atualizar a tarefa
         try {
           console.log(updatedTask)
-          await axios.put(`http://localhost:2000/updateTasksInfo/${user._id === undefined ? user[0]._id : user._id}`, updatedTask, {
+          await axios.put(`https://taskmap-react-daji.vercel.app/updateTasksInfo/${user._id === undefined ? user[0]._id : user._id}`, updatedTask, {
             headers: {'Content-Type': 'application/json'}
           })
           .then(res => {

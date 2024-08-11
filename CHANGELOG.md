@@ -1,3 +1,10 @@
+## [1.24.3](https://github.com/luvsscorpius/taskmap-react/compare/v1.24.2...v1.24.3) (2024-08-11)
+
+
+### Bug Fixes
+
+* **package.json:** package.json ([ca8eab8](https://github.com/luvsscorpius/taskmap-react/commit/ca8eab865e8bb16d582a88261d92f331ea5c0227))
+
 ## [1.24.2](https://github.com/luvsscorpius/taskmap-react/compare/v1.24.1...v1.24.2) (2024-08-11)
 
 

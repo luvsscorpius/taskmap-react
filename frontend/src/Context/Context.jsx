@@ -36,7 +36,7 @@ export const Context = ({ children }) => {
     // Fazer a chamada da api do backend 
     try {
       const token = 'valid-token'
-      const response = await axios.post("http://localhost:2000/login", JSON.stringify({ email, password }),
+      const response = await axios.post("https://taskmap-react-daji.vercel.app/login", JSON.stringify({ email, password }),
         {
           headers: {
             'Content-Type': 'application/json', 'Authorization': `${token}`
@@ -45,7 +45,7 @@ export const Context = ({ children }) => {
       )
 
       // Aqui usaremos denovo o axios para consultar as tasks desse usuário
-      const res = await axios.get(`http://localhost:2000/tasks/${JSON.stringify(response.data)}`,
+      const res = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${JSON.stringify(response.data)}`,
         {
           headers: { 'Content-Type': 'application/json' }
         })

@@ -1,3 +1,10 @@
+# [1.26.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.25.0...v1.26.0) (2024-08-11)
+
+
+### Features
+
+* **endpointy:** changing the endpoint ([662bb41](https://github.com/luvsscorpius/taskmap-react/commit/662bb417f40751baea3a3241c60fbb53c9567337))
+
 # [1.25.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.24.7...v1.25.0) (2024-08-11)
 
 

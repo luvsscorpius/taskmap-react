@@ -1,3 +1,10 @@
+# [1.25.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.24.7...v1.25.0) (2024-08-11)
+
+
+### Features
+
+* **frontend:** changing the endpoint to a real endpoint ([143bc99](https://github.com/luvsscorpius/taskmap-react/commit/143bc99777451c93d71807470e990aa96e9d4b5d))
+
 ## [1.24.7](https://github.com/luvsscorpius/taskmap-react/compare/v1.24.6...v1.24.7) (2024-08-11)
 
 

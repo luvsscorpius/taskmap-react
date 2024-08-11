@@ -1,3 +1,10 @@
+## [1.23.4](https://github.com/luvsscorpius/taskmap-react/compare/v1.23.3...v1.23.4) (2024-08-11)
+
+
+### Bug Fixes
+
+* **fixing:** fixing ([dfb6e31](https://github.com/luvsscorpius/taskmap-react/commit/dfb6e319bb6c9c00ae42687629c4e231ee7d4ee6))
+
 ## [1.23.3](https://github.com/luvsscorpius/taskmap-react/compare/v1.23.2...v1.23.3) (2024-08-10)
 
 

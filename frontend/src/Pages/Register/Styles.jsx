@@ -11,8 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         transition: all 0.25s linear;
-    }
-    
+    }    
 `
 
 export const component = styled.div`

@@ -1,3 +1,12 @@
+## [1.26.1](https://github.com/luvsscorpius/taskmap-react/compare/v1.26.0...v1.26.1) (2024-08-12)
+
+
+### Bug Fixes
+
+* **frontend:** erasing input when added a task ([3da9c41](https://github.com/luvsscorpius/taskmap-react/commit/3da9c4177179de6d13aceb14c693b6b57b88b4a4))
+* **frontend:** now the the task will only be added on frontend when added to backend first ([30a4164](https://github.com/luvsscorpius/taskmap-react/commit/30a416469eda107293c7f10d5576746226b5ca46))
+* **frontend:** now when added a task to backend will also be added to sessionStorage ([133f396](https://github.com/luvsscorpius/taskmap-react/commit/133f39639523832335340ed7a103564a43535b55))
+
 # [1.26.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.25.0...v1.26.0) (2024-08-11)
 
 

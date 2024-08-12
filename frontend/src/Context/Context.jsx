@@ -116,6 +116,7 @@ export const Context = ({ children }) => {
   const addTask = async (e, novaTask) => {
     e.preventDefault()
     setTasks([...tasks, novaTask])
+    console.log(e)
 
     try {
       await axios.put(`https://taskmap-react-daji.vercel.app/update/${user._id === undefined ? user[0]._id : user._id}`, novaTask, {
@@ -129,7 +130,7 @@ export const Context = ({ children }) => {
         .catch(error => {
           return toast.error('Erro:' + error)
         })
-
+ 
       console.log('Tarefa adicionada com sucesso')
 
     } catch (error) {

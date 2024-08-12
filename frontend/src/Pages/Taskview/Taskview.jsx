@@ -113,6 +113,16 @@ export const Taskview = () => {
       }
     }
 
+    // Função para enviar a tarefa e também limpar o input assim que clicar no botão
+    const sendAndErase = (e) => {
+      addTask(e, novaTarefa)
+
+      // Pegando o input
+      const input = document.getElementById('inputTaskview')
+      // Limpando o input
+      input.value = ""
+    }
+
   return (
     <T.component>
       <T.contents>
@@ -121,8 +131,8 @@ export const Taskview = () => {
         </T.title>
 
         <T.inputsContent>
-          <button onClick={(e) => addTask(e, novaTarefa)}>Add Task</button>
-          <input type="text" placeholder='what needs to be done?' onChange={(e) => taske(e.target.value)} />
+          <button onClick={sendAndErase}>Add Task</button>
+          <input type="text" placeholder='what needs to be done?' onChange={(e) => taske(e.target.value)} id='inputTaskview' />
         </T.inputsContent>
 
         <T.tasksContent>

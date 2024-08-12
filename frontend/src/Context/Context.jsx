@@ -115,7 +115,6 @@ export const Context = ({ children }) => {
 
   const addTask = async (e, novaTask) => {
     e.preventDefault()
-    setTasks([...tasks, novaTask])
     console.log(e)
 
     try {
@@ -124,6 +123,7 @@ export const Context = ({ children }) => {
       })
         .then(res => {
           if (res.status === 201) {
+            setTasks([...tasks, novaTask])
             return toast.success('Tarefa Adicionada com Sucesso.')
           }
         })

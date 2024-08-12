@@ -124,6 +124,7 @@ export const Context = ({ children }) => {
         .then(res => {
           if (res.status === 201) {
             setTasks([...tasks, novaTask])
+            sessionStorage.setItem('tasks', JSON.stringify(tasks))
             return toast.success('Tarefa Adicionada com Sucesso.')
           }
         })

@@ -43,6 +43,39 @@ export const contents = styled.div`
         width: 90%;
         height: 405px;
     }
+
+    .paginate { 
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        text-decoration: none;
+        list-style-type: none;
+        gap: 10px;
+        width: 30%;
+
+        li {
+            border-radius: 50%;
+            width: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: #bbb;
+        }
+    }
+
+    .page-item {
+        background-color: ${(props) => props.theme.colors.content};
+    }
+
+    .active {
+        background-color: ${(props) => props.theme.colors.maincolor};
+        color: #fff;
+    }
 `
 
 export const title = styled.div`
@@ -134,41 +167,6 @@ export const tasksContent = styled.div`
     gap: 2px;
     transition: all 0.25s linear;
 
-    .paginate { 
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        justify-content: center;
-        text-decoration: none;
-        list-style-type: none;
-        gap: 10px;
-        width: 30%;
-        position: fixed;
-        margin-top: 250px;
-
-        li {
-            border-radius: 50%;
-            width: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        li:hover {
-            background-color: #bbb;
-        }
-    }
-
-    .page-item {
-        background-color: ${(props) => props.theme.colors.content};
-    }
-
-    .active {
-        background-color: ${(props) => props.theme.colors.maincolor};
-        color: #fff;
-    }
-
     @media (max-width: 700px) {
         width: 95%;
     }
@@ -183,6 +181,10 @@ export const task = styled.div`
     background-color: ${(props) => props.theme.colors.taskinfo};
     border-radius: 5px;
     transition: all 0.25s linear;
+
+    @media (max-width: 700px) {
+        width: 90%;
+    }
 `
 
 export const taskInfo = styled.div`
@@ -237,11 +239,14 @@ export const taskInfo = styled.div`
 
     @media (max-width: 700px) {
         width: 75%;
-        word-wrap: wrap;
 
         input[type="checkbox"]:checked + .slider {
             opacity: 1;
             width: 150px;
+        }
+
+        input {
+            width: 80%;
         }
     }
 `;

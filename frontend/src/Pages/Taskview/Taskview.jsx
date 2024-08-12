@@ -141,8 +141,9 @@ export const Taskview = () => {
                 </T.taskBtn>
               </T.task>
             ))}
+        </T.tasksContent>
 
-            <ReactPaginate
+        <ReactPaginate
               previousLabel={<CaretLeft/>}
               nextLabel={<CaretRight/>}
               breakLabel={'...'}
@@ -154,7 +155,6 @@ export const Taskview = () => {
               activeClassName={'active'} // Classe para quando o item for clicado
               pageClassName={'page-item'} // Classe para cada item de página
             />
-        </T.tasksContent>
       </T.contents>
     </T.component>
   )

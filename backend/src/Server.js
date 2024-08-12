@@ -38,4 +38,4 @@ app.use('/deleteTask', deleteTask)
 app.use('/updateTheme', updateTheme)
 app.use('/updateTasksInfo', updateTaskInfo)
 
-app.listen(3000, () => console.log('Ouvindo na porta 3000'))
+app.listen(2000, () => console.log('Ouvindo na porta 2000'))

@@ -85,7 +85,7 @@ export const Context = ({ children }) => {
     const fetchData = async (req, res) => {
       try {
         const dataResponse = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${user}`, {
-          headers: {'Content-Type': 'application/json'}
+          headers: { 'Content-Type': 'application/json' }
         })
 
         // Tarefas encontradas
@@ -131,7 +131,7 @@ export const Context = ({ children }) => {
         .catch(error => {
           return toast.error('Erro:' + error)
         })
- 
+
       console.log('Tarefa adicionada com sucesso')
 
     } catch (error) {
@@ -143,22 +143,36 @@ export const Context = ({ children }) => {
   const addUser = async (e, nome, email, senha) => {
     e.preventDefault()
 
-    // Mandando um array vazio para cada usuário que for criado para não dar erro na hora de ler as supostas tasks que o usuário ainda não tem.
-    const user = { name: nome, email: email, password: senha, theme: theme, tasks: [] }
-    console.log(user)
-
-    try {
-      await axios.post(`https://taskmap-react-daji.vercel.app/createuser`, JSON.stringify(user), {
-        headers: { 'Content-Type': 'application/json' }
-      })
-      toast.success('Usuário criado com sucesso', {
+    if (nome === '') {
+      toast.warning('Campo nome vazio, insira o nome e tente novamente.', {
         position: 'top-right'
       })
-    } catch (error) {
-      if (!error?.response) {
-        toast.error('Erro ao criar um novo usuário')
-      } else if (error.response.status === 409) {
-        toast.error('Usuário ja existe.')
+    } else if (email === '') {
+      toast.warning('Campo email vazio, insira um email e tente novamente.', {
+        position: 'top-right'
+      })
+    } else if (senha === '') {
+      toast.warning('Campo senha vazio, insira uma senha e tente novamente.', {
+        position: 'top-right'
+      })
+    } else {
+      // Mandando um array vazio para cada usuário que for criado para não dar erro na hora de ler as supostas tasks que o usuário ainda não tem.
+      const user = { name: nome, email: email, password: senha, theme: theme, tasks: [] }
+      console.log(user)
+
+      try {
+        await axios.post(`https://taskmap-react-daji.vercel.app/createuser`, JSON.stringify(user), {
+          headers: { 'Content-Type': 'application/json' }
+        })
+        toast.success('Usuário cadastrado com sucesso', {
+          position: 'top-right'
+        })
+      } catch (error) {
+        if (!error?.response) {
+          toast.error('Erro ao criar um novo usuário')
+        } else if (error.response.status === 409) {
+          toast.error('Usuário ja existe.')
+        }
       }
     }
   }
@@ -207,27 +221,27 @@ export const Context = ({ children }) => {
   const updateTheme = async () => {
     // Usando essa condição para ver se existe algum usuário, se não para conseguir mudar o tema mesmo não estando logado.
     if (user === null) {
-        setTheme(theme === 'light' ? 'dark' : 'light')
-          // using this to manipulate the theme button
-          setIsChecked(prevIsChecked => !prevIsChecked)
-          toast.success(`Atualizado para o tema ${theme === 'light' ? 'dark' : 'light'}`)
+      setTheme(theme === 'light' ? 'dark' : 'light')
+      // using this to manipulate the theme button
+      setIsChecked(prevIsChecked => !prevIsChecked)
+      toast.success(`Atualizado para o tema ${theme === 'light' ? 'dark' : 'light'}`)
     } else {
       try {
         const userInfo = user[0] || user
         await axios.put(`https://taskmap-react-daji.vercel.app/updateTheme/${user._id === undefined ? user[0]._id : user._id}`, user === undefined ? userInfo : user, {
-          headers: {'Content-Type': 'application/json'}
+          headers: { 'Content-Type': 'application/json' }
         })
-        .then(res => {
-          console.log(res.status)
-          if (res.status === 200) {
-            setTheme(theme === 'light' ? 'dark' : 'light')
-            // using this to manipulate the theme button
-            setIsChecked(prevIsChecked => !prevIsChecked)
-            toast.success(`Atualizado para o tema ${theme === 'light' ? 'dark' : 'light'}`)
-          } 
-        }).catch(error => {
-          toast.error('Erro: ', error)
-        })
+          .then(res => {
+            console.log(res.status)
+            if (res.status === 200) {
+              setTheme(theme === 'light' ? 'dark' : 'light')
+              // using this to manipulate the theme button
+              setIsChecked(prevIsChecked => !prevIsChecked)
+              toast.success(`Atualizado para o tema ${theme === 'light' ? 'dark' : 'light'}`)
+            }
+          }).catch(error => {
+            toast.error('Erro: ', error)
+          })
       } catch (error) {
         console.error(error)
       }

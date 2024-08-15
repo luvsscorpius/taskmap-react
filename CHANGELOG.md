@@ -1,3 +1,15 @@
+# [1.27.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.26.1...v1.27.0) (2024-08-15)
+
+
+### Bug Fixes
+
+* **frontend:** now you need to type something in the inputs on register (to register LOL) ([82543ca](https://github.com/luvsscorpius/taskmap-react/commit/82543ca195667ef6e0986821dcda53538b936721))
+
+
+### Features
+
+* **frontend:** now when you register a new user, youll be redirected to home page ([84db77b](https://github.com/luvsscorpius/taskmap-react/commit/84db77bc613d4eb7765c73117d6e52d3e8760c4d))
+
 ## [1.26.1](https://github.com/luvsscorpius/taskmap-react/compare/v1.26.0...v1.26.1) (2024-08-12)
 
 

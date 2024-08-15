@@ -167,6 +167,7 @@ export const Context = ({ children }) => {
         toast.success('Usuário cadastrado com sucesso', {
           position: 'top-right'
         })
+        navigate('/')
       } catch (error) {
         if (!error?.response) {
           toast.error('Erro ao criar um novo usuário')

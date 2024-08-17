@@ -1,3 +1,10 @@
+## [1.28.1](https://github.com/luvsscorpius/taskmap-react/compare/v1.28.0...v1.28.1) (2024-08-17)
+
+
+### Bug Fixes
+
+* **frontend viewport:** changing the viewport to not zoom ([502c549](https://github.com/luvsscorpius/taskmap-react/commit/502c549c95abb8a079be3858638b12079f9bbed3))
+
 # [1.28.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.27.0...v1.28.0) (2024-08-17)
 
 

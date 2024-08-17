@@ -228,7 +228,7 @@ export const taskInfo = styled.div`
         position: relative;
         z-index: 1;
         width: 300px;
-        font-size: 17px;
+        font-size: 16px;
         color: ${(props) => props.theme.colors.fontcolor};
         outline: none;
     }

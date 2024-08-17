@@ -1,3 +1,10 @@
+# [1.28.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.27.0...v1.28.0) (2024-08-17)
+
+
+### Features
+
+* **frontend inputfocus:** now when you click on the button to update the input border will be shown ([4f90c52](https://github.com/luvsscorpius/taskmap-react/commit/4f90c5237fa82feb618fdbbf07d23d5d79ab67b2))
+
 # [1.27.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.26.1...v1.27.0) (2024-08-15)
 
 

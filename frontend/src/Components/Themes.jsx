@@ -7,7 +7,9 @@ export const lightTheme = {
         maincolor: '#323232',
         bgcoloritens: '#fff',
         content: '#eee',
-        taskinfo: '#fff'
+        taskinfo: '#fff',
+        btnColor: '#263169',
+        inputColor: '#263169',
     }
 }
 
@@ -20,6 +22,8 @@ export const darkTheme = {
         maincolor: '#263169', 
         bgcoloritens: '#1E1E1E', 
         content: '#121212',
-        taskinfo: '#263169'
+        taskinfo: '#263169',
+        btnColor: '#263169',
+        inputColor: '#ccc'
     }
 }

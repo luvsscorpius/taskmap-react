@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { TaskContext } from '../../Context/Context'
 import * as T from './Styles'
 import {Trash, Pencil, CaretLeft, CaretRight} from 'phosphor-react'
@@ -64,6 +64,9 @@ export const Taskview = () => {
     const [isReadOnly, setReadOnly] = useState(true)
     const [editingTaskId, setEditingTaskId] = useState(null)
     const [updatedTask, setUpdatedTask] = useState({})
+
+    // AddClass InputFocus
+    const [className, setClassName] = useState('inputFocus')
 
     const updateTask = (tarefa) => {
       console.log(tarefa)
@@ -132,7 +135,7 @@ export const Taskview = () => {
 
         <T.inputsContent>
           <button onClick={sendAndErase}>Add Task</button>
-          <input type="text" placeholder='what needs to be done?' onChange={(e) => taske(e.target.value)} id='inputTaskview' />
+          <input type="text" placeholder='what needs to be done?' onChange={(e) => taske(e.target.value)} id='inputTaskview'/>
         </T.inputsContent>
 
         <T.tasksContent>
@@ -142,7 +145,7 @@ export const Taskview = () => {
                   <T.taskInfo>
                       <input type="checkbox" checked={task.isChecked} onChange={() => handleCheck(task.id, task.isChecked, task.id)} />
                       <span className='slider'></span>
-                      <input className={task.isChecked ? 'strikethrough' : ''} value={task.taskName} readOnly={!(editingTaskId === task.id && !isReadOnly)} onChange={(e) => handleTaskChange(e, task.id)} onKeyDown={(e) => handleTaskChange(e, task.id)}/>
+                      <input value={task.taskName} readOnly={!(editingTaskId === task.id && !isReadOnly)} onChange={(e) => handleTaskChange(e, task.id)} onKeyDown={(e) => handleTaskChange(e, task.id)} className={(editingTaskId === task.id && className)}/>
                   </T.taskInfo>
                 
                 <T.taskBtn>

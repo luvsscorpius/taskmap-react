@@ -73,7 +73,7 @@ export const contents = styled.div`
     }
 
     .active {
-        background-color: ${(props) => props.theme.colors.maincolor};
+        background-color: ${(props) => props.theme.colors.btnColor};
         color: #fff;
     }
 `
@@ -129,7 +129,7 @@ export const inputsContent = styled.form`
     }
 
     button {
-        background-color: #263169;
+        background-color: ${(props) => props.theme.colors.btnColor};
         border: 0;
         width: 120px;
         height: 40px;
@@ -229,12 +229,18 @@ export const taskInfo = styled.div`
         z-index: 1;
         width: 300px;
         font-size: 17px;
-        color: ${(props) => props.theme.colors.fontcolor}
+        color: ${(props) => props.theme.colors.fontcolor};
+        outline: none;
     }
 
-    p.strikethrough {
-        text-decoration: line-through;
-        color: #888; /* Cor do texto riscado */
+    .inputFocus {
+        border: 2px solid ${(props) => props.theme.colors.inputColor};
+    }
+
+    .inputFocus:focus {
+        border: 2px solid ${(props) => props.theme.colors.inputColor};
+        box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+        outline: none;
     }
 
     @media (max-width: 700px) {

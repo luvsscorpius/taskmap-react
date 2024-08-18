@@ -45,15 +45,15 @@ export const Context = ({ children }) => {
       )
 
       // Aqui usaremos denovo o axios para consultar as tasks desse usuário
-      const res = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${JSON.stringify(response.data)}`,
+      const dataTasks = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${JSON.stringify(response.data)}`,
         {
           headers: { 'Content-Type': 'application/json' }
         })
 
-      console.log(res)
+      console.log(dataTasks)
 
-      sessionStorage.setItem('tasks', JSON.stringify(res.data[0].tasks))
-      const tasks = res.data[0].tasks
+      sessionStorage.setItem('tasks', JSON.stringify(dataTasks.data[0].tasks))
+      const tasks = dataTasks.data[0].tasks
       setTasks(tasks)
 
       sessionStorage.setItem('user', JSON.stringify(response.data))
@@ -80,9 +80,7 @@ export const Context = ({ children }) => {
 
   //Usando o useEffect para manter o usuário logado, juntamente com as tarefas desse usuário
   useEffect(() => {
-
-    if (user) {
-          // Usando uma função assíncrona para receber os dados da requisição
+    // Usando uma função assíncrona para receber os dados da requisição
     const fetchData = async (req, res) => {
       try {
         const dataResponse = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${user}`, {
@@ -111,8 +109,8 @@ export const Context = ({ children }) => {
     }
 
     fetchData()
-    }
-  }, [user])
+
+  }, [])
 
   const addTask = async (e, novaTask) => {
     e.preventDefault()

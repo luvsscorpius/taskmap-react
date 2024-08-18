@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import * as H from './Styles'
 import logo from '../../assets/logo.png'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { TaskContext } from '../../Context/Context'
 
 export const Home = () => {
-  const {handleLogin, setEmail, setPassword, Icon, icon, setIcon, eyeOff, eye, type, setType} = useContext(TaskContext)
+  const { handleLogin, setEmail, setPassword, Icon, icon, setIcon, eyeOff, eye, type, setType, signed, email, password } = useContext(TaskContext)
 
   const handleToggle = () => {
     if (type === 'password') {
@@ -17,54 +17,60 @@ export const Home = () => {
     }
   }
 
-  return (
-    <H.component>
-      <H.contents>
-        <H.logoItems>
-          <h2>Bem-vindo,</h2>
-          <p>Entre na sua conta para continuar</p>
+  // using this condition to check if the person is already signed in
+  if (signed) {
+    return <Navigate to="/taskview" />
+  } else {
 
-          <img src={logo} alt="" />
-        </H.logoItems>
+    return (
+      <H.component>
+        <H.contents>
+          <H.logoItems>
+            <h2>Bem-vindo,</h2>
+            <p>Entre na sua conta para continuar</p>
 
-        <H.formItems>
-          <H.formItemsButtons>
-            <Link className='links' id='log'>Login</Link>
-            <Link className='links' to='/register'>Cadastro</Link>
-          </H.formItemsButtons>
+            <img src={logo} alt="" />
+          </H.logoItems>
 
-          <H.formInputs>
-            <H.inputs>
-              <label htmlFor="email">Digite seu e-mail</label>
-              <input type="email" placeholder='Email' name='email' onChange={(e) => setEmail(e.target.value)}/>
-            </H.inputs>
+          <H.formItems>
+            <H.formItemsButtons>
+              <Link className='links' id='log'>Login</Link>
+              <Link className='links' to='/register'>Cadastro</Link>
+            </H.formItemsButtons>
 
-            <H.inputs>
-              <label htmlFor="senha">Digite sua senha</label>
-              <input type={type} placeholder='Password' name='senha' onChange={(e) => setPassword(e.target.value)}/>
-              <span>
-                <Icon icon={icon} onClick={handleToggle}/>
-              </span>
-            </H.inputs>
+            <H.formInputs>
+              <H.inputs>
+                <label htmlFor="email">Digite seu e-mail</label>
+                <input type="email" placeholder='Email' name='email' onChange={(e) => setEmail(e.target.value)} />
+              </H.inputs>
 
-            <H.forgot>
-              <Link>Esqueceu a senha?</Link>
+              <H.inputs>
+                <label htmlFor="senha">Digite sua senha</label>
+                <input type={type} placeholder='Password' name='senha' onChange={(e) => setPassword(e.target.value)} />
+                <span>
+                  <Icon icon={icon} onClick={handleToggle} />
+                </span>
+              </H.inputs>
 
-              <div>
-                <input type="checkbox" name="" id="check" /><p>Lembrar de mim</p>
-              </div>
-            </H.forgot>
+              <H.forgot>
+                <Link>Esqueceu a senha?</Link>
+
+                <div>
+                  <input type="checkbox" name="" id="check" /><p>Lembrar de mim</p>
+                </div>
+              </H.forgot>
 
 
-            <H.login>
-            <p>Entre com outras contas</p>
+              <H.login>
+                <p>Entre com outras contas</p>
 
-            <button onClick={handleLogin}>Entrar</button>
-          </H.login>
-          </H.formInputs>
-        </H.formItems>
-      </H.contents>
-    
-    </H.component>
-  )
+                <button onClick={handleLogin}>Entrar</button>
+              </H.login>
+            </H.formInputs>
+          </H.formItems>
+        </H.contents>
+
+      </H.component>
+    )
+  }
 }

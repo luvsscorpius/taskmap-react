@@ -13,7 +13,7 @@ export const TaskContext = createContext(null)
 
 export const Context = ({ children }) => {
   const [users, setUsers] = useState([])
-  const [user, setUser] = useState(sessionStorage.getItem('user'))
+  const [user, setUser] = useState(sessionStorage.getItem('@Auth:user'))
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   // Toggle button
@@ -36,7 +36,7 @@ export const Context = ({ children }) => {
     // Fazer a chamada da api do backend 
     try {
       console.log(email, password)
-      const response = await axios.post("http://localhost:2000/login", ({ email, password }))
+      const response = await axios.post("https://taskmap-react-daji.vercel.app/login", ({ email, password }))
 
       if (response.data.error) {
         alert(response.data.error)
@@ -251,7 +251,7 @@ export const Context = ({ children }) => {
     }
   }
 
-  const contextValue = { addUser, users, setEmail, setPassword, handleLogin, user, setUser, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType, deleteTask, updateTheme, isChecked }
+  const contextValue = { addUser, users, setEmail, setPassword, handleLogin, user, setUser, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType, deleteTask, updateTheme, isChecked, signed: !!user, email, password }
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>

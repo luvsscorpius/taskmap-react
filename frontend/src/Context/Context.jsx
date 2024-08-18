@@ -81,7 +81,8 @@ export const Context = ({ children }) => {
   //Usando o useEffect para manter o usuário logado, juntamente com as tarefas desse usuário
   useEffect(() => {
 
-    // Usando uma função assíncrona para receber os dados da requisição
+    if (user) {
+          // Usando uma função assíncrona para receber os dados da requisição
     const fetchData = async (req, res) => {
       try {
         const dataResponse = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${user}`, {
@@ -110,8 +111,8 @@ export const Context = ({ children }) => {
     }
 
     fetchData()
-
-  }, [])
+    }
+  }, [user])
 
   const addTask = async (e, novaTask) => {
     e.preventDefault()

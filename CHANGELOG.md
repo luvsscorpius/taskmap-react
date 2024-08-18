@@ -1,3 +1,12 @@
+## [1.28.2](https://github.com/luvsscorpius/taskmap-react/compare/v1.28.1...v1.28.2) (2024-08-18)
+
+
+### Bug Fixes
+
+* **backend/frontend:** starting to use jwt token ([27bbc8b](https://github.com/luvsscorpius/taskmap-react/commit/27bbc8b6cc1dac0c8b171b583d1ada9409b04cf7))
+* **frontend useeffect:** using if to see if theres a user logged in and then trying to fetchData ([7337d7c](https://github.com/luvsscorpius/taskmap-react/commit/7337d7ca71f36cb490e4f0f505935399431ba887))
+* **frontend/backend:** trying to implement jwt token on app ([8fbd5f9](https://github.com/luvsscorpius/taskmap-react/commit/8fbd5f949dc07da6884d5404605a88144a442fd4))
+
 ## [1.28.1](https://github.com/luvsscorpius/taskmap-react/compare/v1.28.0...v1.28.1) (2024-08-17)
 
 

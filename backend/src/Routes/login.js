@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const Mongo = require('../config/db')
+const jwt = require('jsonwebtoken')
+
+const secretKey = 'minhasenha'
 
 // Rota de login
 router.post('/', async (req, res) => {
@@ -15,9 +18,11 @@ router.post('/', async (req, res) => {
 
         // Lógica para ver se o mesmo email e senha existem no banco de dados
         const user = collection.find(user => user.email === email && user.password === password)
+        console.log(user)
         // Se sim retornamos um status 200 de ok e um json com o usuário
         if (user) {
-            return res.status(200).json(user)
+            const token = jwt.sign({name: user.name}, secretKey, {expiresIn: '1hr'})
+            return res.json({token, user})
         } else {
             return res.status(401).send('Unathorized')
         }

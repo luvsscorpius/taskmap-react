@@ -35,17 +35,16 @@ export const Context = ({ children }) => {
 
     // Fazer a chamada da api do backend 
     try {
-      const token = 'valid-token'
-      const response = await axios.post("https://taskmap-react-daji.vercel.app/login", JSON.stringify({ email, password }),
+      const response = await axios.post("http://localhost:2000/login", JSON.stringify({ email, password }),
         {
           headers: {
-            'Content-Type': 'application/json', 'Authorization': `${token}`
+            'Content-Type': 'application/json'
           }
         }
       )
 
       // Aqui usaremos denovo o axios para consultar as tasks desse usuário
-      const dataTasks = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${JSON.stringify(response.data)}`,
+      const dataTasks = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${JSON.stringify(response.data.user)}`,
         {
           headers: { 'Content-Type': 'application/json' }
         })
@@ -56,9 +55,9 @@ export const Context = ({ children }) => {
       const tasks = dataTasks.data[0].tasks
       setTasks(tasks)
 
-      sessionStorage.setItem('user', JSON.stringify(response.data))
-      setUser(response.data)
-      console.log(response.data)
+      sessionStorage.setItem('user', JSON.stringify(response.data.user))
+      setUser(response.data.user)
+      console.log(response.data.user)
       navigate('/taskview')
 
       setTheme(response.data.theme)

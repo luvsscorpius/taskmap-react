@@ -1,3 +1,10 @@
+# [1.29.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.28.2...v1.29.0) (2024-08-18)
+
+
+### Features
+
+* **frontend:** (home) using a condition to check if the person is already signed in ([de85202](https://github.com/luvsscorpius/taskmap-react/commit/de852021ddd0af78b7ad86a7802acdcdc00b6f3f))
+
 ## [1.28.2](https://github.com/luvsscorpius/taskmap-react/compare/v1.28.1...v1.28.2) (2024-08-18)
 
 

@@ -35,33 +35,37 @@ export const Context = ({ children }) => {
 
     // Fazer a chamada da api do backend 
     try {
-      const response = await axios.post("http://localhost:2000/login", JSON.stringify({ email, password }),
-        {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }
-      )
+      console.log(email, password)
+      const response = await axios.post("http://localhost:2000/login", ({ email, password }))
 
-      // Aqui usaremos denovo o axios para consultar as tasks desse usuário
-      const dataTasks = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${JSON.stringify(response.data.user)}`,
-        {
-          headers: { 'Content-Type': 'application/json' }
-        })
+      if (response.data.error) {
+        alert(response.data.error)
+      } else {
+        setUser(response.data.user)
+        axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`
+        sessionStorage.setItem('@Auth:token', response.data.token)
+        sessionStorage.setItem('@Auth:user', JSON.stringify(response.data.user))
 
-      console.log(dataTasks)
+        console.log(user)
 
-      sessionStorage.setItem('tasks', JSON.stringify(dataTasks.data[0].tasks))
-      const tasks = dataTasks.data[0].tasks
-      setTasks(tasks)
+        // Aqui usaremos denovo o axios para consultar as tasks desse usuário
+        const dataTasks = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${JSON.stringify(response.data.user)}`,
+          {
+            headers: { 'Content-Type': 'application/json' }
+          })
 
-      sessionStorage.setItem('user', JSON.stringify(response.data.user))
-      setUser(response.data.user)
-      console.log(response.data.user)
-      navigate('/taskview')
+        console.log(dataTasks)
 
-      setTheme(response.data.theme)
-      console.log(theme)
+        sessionStorage.setItem('tasks', JSON.stringify(dataTasks.data[0].tasks))
+        const tasks = dataTasks.data[0].tasks
+        setTasks(tasks)
+
+        console.log(response.data.user)
+        navigate('/taskview')
+
+        setTheme(response.data.theme)
+        console.log(theme)
+      }
 
       // Caso der algum erro
     } catch (error) {

@@ -126,6 +126,8 @@ export const Taskview = () => {
       input.value = ""
     }
 
+    console.log(user)
+
   return (
     <T.component>
       <T.contents>

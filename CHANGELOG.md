@@ -1,3 +1,10 @@
+# [1.30.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.29.0...v1.30.0) (2024-08-22)
+
+
+### Features
+
+* **backend jwt:** using jwt to get a token and make login more authenticated ([f93ed79](https://github.com/luvsscorpius/taskmap-react/commit/f93ed792add32eaec77ddb0f38561e78e6cf2213))
+
 # [1.29.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.28.2...v1.29.0) (2024-08-18)
 
 

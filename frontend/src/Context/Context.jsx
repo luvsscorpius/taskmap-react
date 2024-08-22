@@ -35,18 +35,16 @@ export const Context = ({ children }) => {
 
     // Fazer a chamada da api do backend 
     try {
-      console.log(email, password)
       const response = await axios.post("https://taskmap-react-daji.vercel.app/login", ({ email, password }))
 
       if (response.data.error) {
-        alert(response.data.error)
+        toast.error(response.data.error)
       } else {
         setUser(response.data.user)
         axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`
         sessionStorage.setItem('@Auth:token', response.data.token)
         sessionStorage.setItem('@Auth:user', JSON.stringify(response.data.user))
-
-        console.log(user)
+        console.log(response.data.token)
 
         // Aqui usaremos denovo o axios para consultar as tasks desse usuário
         const dataTasks = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${JSON.stringify(response.data.user)}`,
@@ -54,13 +52,10 @@ export const Context = ({ children }) => {
             headers: { 'Content-Type': 'application/json' }
           })
 
-        console.log(dataTasks)
-
         sessionStorage.setItem('tasks', JSON.stringify(dataTasks.data[0].tasks))
         const tasks = dataTasks.data[0].tasks
         setTasks(tasks)
 
-        console.log(response.data.user)
         navigate('/taskview')
 
         setTheme(response.data.theme)
@@ -84,36 +79,38 @@ export const Context = ({ children }) => {
   //Usando o useEffect para manter o usuário logado, juntamente com as tarefas desse usuário
   useEffect(() => {
     // Usando uma função assíncrona para receber os dados da requisição
-    const fetchData = async (req, res) => {
-      try {
-        const dataResponse = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${user}`, {
-          headers: { 'Content-Type': 'application/json' }
-        })
+    if (user) {
+      const fetchData = async (req, res) => {
+        try {
+          const dataResponse = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${user}`, {
+            headers: { 'Content-Type': 'application/json' }
+          })
 
-        // Tarefas encontradas
-        const TasksFound = dataResponse.data[0].tasks
-        setTasks(TasksFound)
-        console.log(TasksFound)
+          // Tarefas encontradas
+          const TasksFound = dataResponse.data[0].tasks
+          setTasks(TasksFound)
+          console.log(TasksFound)
 
-        // Encontrando o nome do usuário
-        const userFound = dataResponse.data
-        setUser(userFound)
+          // Encontrando o nome do usuário
+          const userFound = dataResponse.data
+          setUser(userFound)
 
-        // Atualizando o tema 
-        const themeFound = dataResponse.data[0].theme
-        setTheme(themeFound)
-        // using this condition to manipulate the theme button
-        if (themeFound === 'dark') {
-          setIsChecked(true)
+          // Atualizando o tema 
+          const themeFound = dataResponse.data[0].theme
+          setTheme(themeFound)
+          // using this condition to manipulate the theme button
+          if (themeFound === 'dark') {
+            setIsChecked(true)
+          }
+        } catch (error) {
+          console.error(error)
         }
-      } catch (error) {
-        console.error(error)
       }
+
+      fetchData()
     }
 
-    fetchData()
-
-  }, [])
+  }, [user])
 
   const addTask = async (e, novaTask) => {
     e.preventDefault()

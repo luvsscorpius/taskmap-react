@@ -44,7 +44,6 @@ export const Context = ({ children }) => {
         axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`
         sessionStorage.setItem('@Auth:token', response.data.token)
         sessionStorage.setItem('@Auth:user', JSON.stringify(response.data.user))
-        console.log(response.data.token)
 
         // Aqui usaremos denovo o axios para consultar as tasks desse usuário
         const dataTasks = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${JSON.stringify(response.data.user)}`,
@@ -59,7 +58,6 @@ export const Context = ({ children }) => {
         navigate('/taskview')
 
         setTheme(response.data.theme)
-        console.log(theme)
       }
 
       // Caso der algum erro
@@ -114,7 +112,6 @@ export const Context = ({ children }) => {
 
   const addTask = async (e, novaTask) => {
     e.preventDefault()
-    console.log(e)
 
     try {
       await axios.put(`https://taskmap-react-daji.vercel.app/update/${user._id === undefined ? user[0]._id : user._id}`, novaTask, {
@@ -157,7 +154,6 @@ export const Context = ({ children }) => {
     } else {
       // Mandando um array vazio para cada usuário que for criado para não dar erro na hora de ler as supostas tasks que o usuário ainda não tem.
       const user = { name: nome, email: email, password: senha, theme: theme, tasks: [] }
-      console.log(user)
 
       try {
         await axios.post(`https://taskmap-react-daji.vercel.app/createuser`, JSON.stringify(user), {
@@ -179,14 +175,10 @@ export const Context = ({ children }) => {
 
   // Função para deletar alguma task
   const deleteTask = async (taskId, userId) => {
-    console.log('ID da tarefa: ' + taskId + ' ID do usuário: ' + userId)
-
     const userInfo = {
       taskId: taskId,
       userId: userId
     }
-
-    console.log(userInfo)
 
     try {
       await axios.delete(`https://taskmap-react-daji.vercel.app/deleteTask/${JSON.stringify(userInfo)}`, {
@@ -203,7 +195,6 @@ export const Context = ({ children }) => {
 
             // Removendo do session storage por conta do useEffect
             const tasksUpdated = tasks.filter(task => task.id !== taskId)
-            console.log(tasksUpdated)
             sessionStorage.setItem('tasks', JSON.stringify(tasksUpdated))
           }
         }).catch(error => {
@@ -232,7 +223,6 @@ export const Context = ({ children }) => {
           headers: { 'Content-Type': 'application/json' }
         })
           .then(res => {
-            console.log(res.status)
             if (res.status === 200) {
               setTheme(theme === 'light' ? 'dark' : 'light')
               // using this to manipulate the theme button

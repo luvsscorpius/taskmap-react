@@ -27,8 +27,6 @@ export const Taskview = () => {
     const currentPageData = tasks.slice(offset, offset + itemsPerPage)
     
     const handleCheck = async (index, isChecked, taskId) => {
-      console.log(index, isChecked, taskId)
-      console.log(user)
 
       const locatedIndex = tasks.find(task => task.id === taskId)
       if (locatedIndex) {
@@ -41,7 +39,6 @@ export const Taskview = () => {
 
           toast.success('Tarefa atualizada com sucesso.')
   
-          console.log('Deu certo')
         } catch(error) {
           console.error(error)
         }
@@ -69,7 +66,6 @@ export const Taskview = () => {
     const [className, setClassName] = useState('inputFocus')
 
     const updateTask = (tarefa) => {
-      console.log(tarefa)
       setEditingTaskId(tarefa)
       setReadOnly(false)
     }
@@ -95,15 +91,12 @@ export const Taskview = () => {
       if (e.key === 'Enter') {
         // Utilizando esse endPoint para atualizar a tarefa
         try {
-          console.log(updatedTask)
           await axios.put(`https://taskmap-react-daji.vercel.app/updateTasksInfo/${user._id === undefined ? user[0]._id : user._id}`, updatedTask, {
             headers: {'Content-Type': 'application/json'}
           })
           .then(res => {
-            console.log(res.status)
             if (res.status === 201) {
               toast.success('Tarefa atualizada com sucesso!')
-              console.log('Tarefa atualizada com sucesso')
               setReadOnly(true)
             }
           })
@@ -125,8 +118,6 @@ export const Taskview = () => {
       // Limpando o input
       input.value = ""
     }
-
-    console.log(user)
 
   return (
     <T.component>

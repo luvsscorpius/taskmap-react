@@ -38,8 +38,7 @@ export const Context = ({ children }) => {
 <<<<<<< HEAD
 =======
       console.log(email, password)
->>>>>>> parent of de85202 (feat(frontend): (home) using a condition to check if the person is already signed in)
-      const response = await axios.post("http://localhost:2000/login", ({ email, password }))
+      const response = await axios.post("https://taskmap-react-daji.vercel.app/login", ({ email, password }))
 
       if (response.data.error) {
         toast.error(response.data.error)

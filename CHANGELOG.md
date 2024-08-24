@@ -1,3 +1,10 @@
+## [1.30.1](https://github.com/luvsscorpius/taskmap-react/compare/v1.30.0...v1.30.1) (2024-08-24)
+
+
+### Bug Fixes
+
+* **frontend:** useEffect trying to fix token bug ([81f0aa4](https://github.com/luvsscorpius/taskmap-react/commit/81f0aa4a5a0b72cd18fa75b491922d22c4f4b97e))
+
 # [1.30.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.29.0...v1.30.0) (2024-08-22)
 
 

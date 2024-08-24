@@ -3,7 +3,9 @@ const jwt = require('jsonwebtoken')
 const secretKey = 'minhasenha'
 
 const verifyToken = (req, res, next) => {
-    const token = req.header['authorization']
+    const token = req.header["Authorization"]
+
+    console.log(token)
 
     if (!token) {
         return res.status(403).send('Token is required')

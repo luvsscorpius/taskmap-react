@@ -84,8 +84,8 @@ export const Context = ({ children }) => {
             headers: { 'Content-Type': 'application/json' }
           })
 
-          dataResponse.headers.common["Authorization"] = `Bearer ${response.data.token}`
-
+           axios.defaults.headers.common["Authorization"] = `Bearer ${dataResponse.data.token}`
+           
           // Tarefas encontradas
           const TasksFound = dataResponse.data[0].tasks
           setTasks(TasksFound)

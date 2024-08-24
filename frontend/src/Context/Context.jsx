@@ -35,13 +35,13 @@ export const Context = ({ children }) => {
 
     // Fazer a chamada da api do backend 
     try {
-      const response = await axios.post("https://taskmap-react-daji.vercel.app/login", ({ email, password }))
+      const response = await axios.post("http://localhost:2000/login", ({ email, password }))
 
       if (response.data.error) {
         toast.error(response.data.error)
       } else {
         setUser(response.data.user)
-        axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`
+        axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`;
         sessionStorage.setItem('@Auth:token', response.data.token)
         sessionStorage.setItem('@Auth:user', JSON.stringify(response.data.user))
 
@@ -50,6 +50,8 @@ export const Context = ({ children }) => {
           {
             headers: { 'Content-Type': 'application/json' }
           })
+
+        console.log(dataTasks)
 
         sessionStorage.setItem('tasks', JSON.stringify(dataTasks.data[0].tasks))
         const tasks = dataTasks.data[0].tasks
@@ -77,15 +79,21 @@ export const Context = ({ children }) => {
   //Usando o useEffect para manter o usuário logado, juntamente com as tarefas desse usuário
   useEffect(() => {
     // Usando uma função assíncrona para receber os dados da requisição
+    console.log(sessionStorage.getItem('@Auth:user'))
+    console.log(user)
     if (user) {
       const fetchData = async (req, res) => {
         try {
-          const dataResponse = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${user}`, {
+
+          const token = sessionStorage.getItem('@Auth:token');
+          axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+          const dataResponse = await axios.get(`http://localhost:2000/tasks/${user}`, {
             headers: { 'Content-Type': 'application/json' }
           })
 
-           axios.defaults.headers.common["Authorization"] = `Bearer ${dataResponse.data.token}`
-           
+          console.log(dataResponse)
+
           // Tarefas encontradas
           const TasksFound = dataResponse.data[0].tasks
           setTasks(TasksFound)

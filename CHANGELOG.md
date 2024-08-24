@@ -1,3 +1,18 @@
+## [1.30.4](https://github.com/luvsscorpius/taskmap-react/compare/v1.30.3...v1.30.4) (2024-08-24)
+
+
+### Bug Fixes
+
+* **fix:** fixing ([046dbb1](https://github.com/luvsscorpius/taskmap-react/commit/046dbb1a21c3bec241aa7b0c6937140a916ad04e))
+
+
+### Reverts
+
+* Revert "feat(frontend): (home) using a condition to check if the person is already signed in" ([743d0de](https://github.com/luvsscorpius/taskmap-react/commit/743d0de5eab9b2fcc65df9df52b7c04c07509dda))
+* **revert:** revert ([41b359d](https://github.com/luvsscorpius/taskmap-react/commit/41b359d9b18e144ea38bcad5dd337f3d1f5cd0ff))
+* **revert:** revert ([02801c3](https://github.com/luvsscorpius/taskmap-react/commit/02801c353df9d4812f447325fd591e98be355cdb))
+* **revert:** reverting commit ([00f2810](https://github.com/luvsscorpius/taskmap-react/commit/00f28103c8de7a938e4c4a71c48f4052fee1d060))
+
 ## [1.30.3](https://github.com/luvsscorpius/taskmap-react/compare/v1.30.2...v1.30.3) (2024-08-24)
 
 

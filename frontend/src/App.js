@@ -6,7 +6,6 @@ import { Taskview } from './Pages/Taskview/Taskview';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css"
 import { ButtonTheme } from './Components/ToggleThemeButton/Button';
-import { PrivateRoute } from './Components/PrivateRoute/PrivateRoute';
 
 function App() {
 
@@ -19,7 +18,6 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/register' element={<Register />} />
             <Route path='/taskview' element={<Taskview />} />
-            <Route path='/privateRoute' element={<PrivateRoute />} />
           </Routes>
           <ButtonTheme />
         </Context>

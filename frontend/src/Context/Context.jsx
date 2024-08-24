@@ -13,7 +13,7 @@ export const TaskContext = createContext(null)
 
 export const Context = ({ children }) => {
   const [users, setUsers] = useState([])
-  const [user, setUser] = useState(sessionStorage.getItem('@Auth:user'))
+  const [user, setUser] = useState(sessionStorage.getItem('user'))
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   // Toggle button
@@ -35,6 +35,10 @@ export const Context = ({ children }) => {
 
     // Fazer a chamada da api do backend 
     try {
+<<<<<<< HEAD
+=======
+      console.log(email, password)
+>>>>>>> parent of de85202 (feat(frontend): (home) using a condition to check if the person is already signed in)
       const response = await axios.post("http://localhost:2000/login", ({ email, password }))
 
       if (response.data.error) {
@@ -248,7 +252,7 @@ export const Context = ({ children }) => {
     }
   }
 
-  const contextValue = { addUser, users, setEmail, setPassword, handleLogin, user, setUser, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType, deleteTask, updateTheme, isChecked, signed: !!user, email, password }
+  const contextValue = { addUser, users, setEmail, setPassword, handleLogin, user, setUser, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType, deleteTask, updateTheme, isChecked }
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>

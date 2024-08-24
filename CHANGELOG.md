@@ -1,3 +1,10 @@
+## [1.30.3](https://github.com/luvsscorpius/taskmap-react/compare/v1.30.2...v1.30.3) (2024-08-24)
+
+
+### Bug Fixes
+
+* **backend:** deleting jwt.middleware to fix the problem ([a39cd78](https://github.com/luvsscorpius/taskmap-react/commit/a39cd78f8f9fb72258070ce0892684c9b3ed873f))
+
 ## [1.30.2](https://github.com/luvsscorpius/taskmap-react/compare/v1.30.1...v1.30.2) (2024-08-24)
 
 

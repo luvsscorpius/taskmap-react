@@ -1,3 +1,10 @@
+## [1.30.2](https://github.com/luvsscorpius/taskmap-react/compare/v1.30.1...v1.30.2) (2024-08-24)
+
+
+### Bug Fixes
+
+* **backend:** trying to fix jwt.middleware ([a368e0b](https://github.com/luvsscorpius/taskmap-react/commit/a368e0bd249dc8380d0c75856b3c24c3ed58b286))
+
 ## [1.30.1](https://github.com/luvsscorpius/taskmap-react/compare/v1.30.0...v1.30.1) (2024-08-24)
 
 

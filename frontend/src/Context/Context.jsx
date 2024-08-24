@@ -35,8 +35,6 @@ export const Context = ({ children }) => {
 
     // Fazer a chamada da api do backend 
     try {
-<<<<<<< HEAD
-=======
       console.log(email, password)
       const response = await axios.post("https://taskmap-react-daji.vercel.app/login", ({ email, password }))
 
@@ -82,8 +80,6 @@ export const Context = ({ children }) => {
   //Usando o useEffect para manter o usuário logado, juntamente com as tarefas desse usuário
   useEffect(() => {
     // Usando uma função assíncrona para receber os dados da requisição
-    console.log(sessionStorage.getItem('@Auth:user'))
-    console.log(user)
     if (user) {
       const fetchData = async (req, res) => {
         try {
@@ -91,7 +87,7 @@ export const Context = ({ children }) => {
           const token = sessionStorage.getItem('@Auth:token');
           axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
-          const dataResponse = await axios.get(`http://localhost:2000/tasks/${user}`, {
+          const dataResponse = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${user}`, {
             headers: { 'Content-Type': 'application/json' }
           })
 

@@ -1,3 +1,10 @@
+# [1.32.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.31.0...v1.32.0) (2024-08-25)
+
+
+### Features
+
+* **frontend logout:** implementing a function to check if the token is expired to log user out ([4ffe037](https://github.com/luvsscorpius/taskmap-react/commit/4ffe037c22cfeae2db29c7a20e1a539595cd84ab))
+
 # [1.31.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.30.6...v1.31.0) (2024-08-25)
 
 

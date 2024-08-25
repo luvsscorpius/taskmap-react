@@ -13,7 +13,7 @@ router.delete('/:id', async (req, res) => {
 
     try {
         const db = await Mongo()
-        const findUser = await db.collection('usuarios').findOne({_id: userId}, {projection: {tasks: 1}})
+        const findUser = await db.collection('usuarios').findOne({ _id: userId }, { projection: { tasks: 1 } })
 
         const findTask = findUser.tasks.find(id => id.id === userInfo.taskId)
         console.log(findTask)
@@ -22,8 +22,8 @@ router.delete('/:id', async (req, res) => {
         // pq não o deleteOne? pois o deleteOne deleta o documento to, ps: por isso estava deletando os usuários.
         if (findTask) {
             await await db.collection('usuarios').updateOne(
-                {_id: userId},
-                {$pull: {tasks: findTask}}
+                { _id: userId },
+                { $pull: { tasks: findTask } }
             )
             console.log('Tarefa deletada com sucesso')
             res.status(200)

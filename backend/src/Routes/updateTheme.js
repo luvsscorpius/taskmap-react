@@ -16,6 +16,7 @@ router.put('/:user', async (req, res) => {
             {_id: userId}, 
             {$set: {'theme': user.theme === 'light' ? 'dark' : 'light'}}
         )
+        console.log('Tema atualizado com sucesso')
         res.status(200).send('Tema atualizado com sucesso')
     } catch (error) {
         console.error(error)

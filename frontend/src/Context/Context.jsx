@@ -106,7 +106,7 @@ export const Context = ({ children }) => {
     e.preventDefault()
 
     try {
-      await axios.put(`http://localhost:2000/update/${user._id === undefined ? user[0]._id : user._id}`, novaTask, {
+      await axios.put(`http://localhost:2000/addTask/${user._id === undefined ? user[0]._id : user._id}`, novaTask, {
         headers: { 'Content-Type': 'application/json' }
       })
         .then(res => {

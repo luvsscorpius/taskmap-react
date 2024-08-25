@@ -9,8 +9,7 @@ const secretKey = 'minhasenha'
 router.post('/', async (req, res) => {
     try {
         // Pegamos oque vem da requição
-        const {email, password} = req.body
-        console.log(email, password)
+        const { email, password } = req.body
 
         // Buscamos no banco de dados os usuários
         const db = await Mongo()
@@ -21,19 +20,19 @@ router.post('/', async (req, res) => {
         console.log(user)
         // Se sim retornamos um status 200 de ok e um json com o usuário
         if (user) {
-            const token = jwt.sign({name: user.name}, secretKey, {expiresIn: '1hr'})
-            
+            const token = jwt.sign({ name: user.name }, secretKey, { expiresIn: '1hr' })
+
             // usaremos o operador spreado para mandar o token junto com o usuario
-            const userWithToken = {...user, token}
+            const userWithToken = { ...user, token }
             return res.json([userWithToken])
         } else {
             return res.status(401).send('Unathorized')
         }
-    
+
     } catch (error) {
         console.error(error)
-         // Caso contrário retornaremos um status 401
-         return res.status(401)
+        // Caso contrário retornaremos um status 401
+        return res.status(401)
     }
 })
 

@@ -22,7 +22,10 @@ router.post('/', async (req, res) => {
         // Se sim retornamos um status 200 de ok e um json com o usuário
         if (user) {
             const token = jwt.sign({name: user.name}, secretKey, {expiresIn: '1hr'})
-            return res.json({token, user})
+            
+            // usaremos o operador spreado para mandar o token junto com o usuario
+            const userWithToken = {...user, token}
+            return res.json([userWithToken])
         } else {
             return res.status(401).send('Unathorized')
         }

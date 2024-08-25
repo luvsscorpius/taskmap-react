@@ -12,13 +12,13 @@ import { eye } from 'react-icons-kit/feather/eye'
 export const TaskContext = createContext(null)
 
 export const Context = ({ children }) => {
-  const [users, setUsers] = useState([])
   const [user, setUser] = useState(sessionStorage.getItem('@Auth:user'))
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   // Toggle button
   const [theme, setTheme] = useState('light')
 
+  // Tasks
   const [tasks, setTasks] = useState([])
 
   // Hide and show password
@@ -35,29 +35,21 @@ export const Context = ({ children }) => {
 
     // Fazer a chamada da api do backend 
     try {
-      console.log(email, password)
       const response = await axios.post("http://localhost:2000/login", ({ email, password }))
 
       if (response.data.error) {
-        alert(response.data.error)
+        toast.error(response.data.error)
       } else {
-        setUser(response.data.user)
-        axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`
-        sessionStorage.setItem('@Auth:token', response.data.token)
-        sessionStorage.setItem('@Auth:user', JSON.stringify(response.data.user))
 
-        console.log(user)
+        console.log(response.data)
 
-        // Aqui usaremos denovo o axios para consultar as tasks desse usuário
-        const dataTasks = await axios.get(`http://localhost:2000/tasks/${JSON.stringify(response.data.user)}`,
-          {
-            headers: { 'Content-Type': 'application/json' }
-          })
+        setUser(response.data[0])
+        axios.defaults.headers.common["Authorization"] = `Bearer ${response.data[0].token}`
+        sessionStorage.setItem('@Auth:token', response.data[0].token)
+        sessionStorage.setItem('@Auth:user', JSON.stringify(response.data[0]))
 
-        console.log(dataTasks)
-
-        sessionStorage.setItem('tasks', JSON.stringify(dataTasks.data[0].tasks))
-        const tasks = dataTasks.data[0].tasks
+        sessionStorage.setItem('tasks', JSON.stringify(response.data[0].tasks))
+        const tasks = response.data[0].tasks
         setTasks(tasks)
 
         console.log(response.data.user)
@@ -251,7 +243,7 @@ export const Context = ({ children }) => {
     }
   }
 
-  const contextValue = { addUser, users, setEmail, setPassword, handleLogin, user, setUser, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType, deleteTask, updateTheme, isChecked, signed: !!user, email, password }
+  const contextValue = { addUser, setEmail, setPassword, handleLogin, user, setUser, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType, deleteTask, updateTheme, isChecked, signed: !!user, email, password }
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>

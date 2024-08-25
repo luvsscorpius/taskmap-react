@@ -82,7 +82,6 @@ export const Context = ({ children }) => {
         // Tarefas encontradas
         const TasksFound = dataResponse.data[0].tasks
         setTasks(TasksFound)
-        console.log(TasksFound)
 
         // Encontrando o nome do usuário
         const userFound = dataResponse.data
@@ -101,12 +100,10 @@ export const Context = ({ children }) => {
     }
 
     fetchData()
-
   }, [])
 
   const addTask = async (e, novaTask) => {
     e.preventDefault()
-    console.log(e)
 
     try {
       await axios.put(`http://localhost:2000/update/${user._id === undefined ? user[0]._id : user._id}`, novaTask, {
@@ -122,8 +119,6 @@ export const Context = ({ children }) => {
         .catch(error => {
           return toast.error('Erro:' + error)
         })
-
-      console.log('Tarefa adicionada com sucesso')
 
     } catch (error) {
       console.error(error)
@@ -149,7 +144,6 @@ export const Context = ({ children }) => {
     } else {
       // Mandando um array vazio para cada usuário que for criado para não dar erro na hora de ler as supostas tasks que o usuário ainda não tem.
       const user = { name: nome, email: email, password: senha, theme: theme, tasks: [] }
-      console.log(user)
 
       try {
         await axios.post(`http://localhost:2000/createuser`, JSON.stringify(user), {
@@ -171,14 +165,11 @@ export const Context = ({ children }) => {
 
   // Função para deletar alguma task
   const deleteTask = async (taskId, userId) => {
-    console.log('ID da tarefa: ' + taskId + ' ID do usuário: ' + userId)
 
     const userInfo = {
       taskId: taskId,
       userId: userId
     }
-
-    console.log(userInfo)
 
     try {
       await axios.delete(`http://localhost:2000/deleteTask/${JSON.stringify(userInfo)}`, {
@@ -195,14 +186,11 @@ export const Context = ({ children }) => {
 
             // Removendo do session storage por conta do useEffect
             const tasksUpdated = tasks.filter(task => task.id !== taskId)
-            console.log(tasksUpdated)
             sessionStorage.setItem('tasks', JSON.stringify(tasksUpdated))
           }
         }).catch(error => {
           toast.error('Erro: ', error)
         })
-
-      console.log('Informações enviadas com sucesso.')
     }
     catch (error) {
       console.error(error)

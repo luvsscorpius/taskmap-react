@@ -1,3 +1,15 @@
+# [1.31.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.30.6...v1.31.0) (2024-08-25)
+
+
+### Bug Fixes
+
+* **frontend:** useEffect: now the useEffect will only be actived when user is different from null ([6e3c67e](https://github.com/luvsscorpius/taskmap-react/commit/6e3c67e7ff1a6cc7c56d764b64ebaefcf9e4f83f))
+
+
+### Features
+
+* **frontend/backend:** implement auth/jwt middleware ([2d6faa6](https://github.com/luvsscorpius/taskmap-react/commit/2d6faa622048e69be85203b369bfe351fc274816))
+
 ## [1.30.6](https://github.com/luvsscorpius/taskmap-react/compare/v1.30.5...v1.30.6) (2024-08-25)
 
 

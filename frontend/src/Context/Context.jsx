@@ -41,9 +41,8 @@ export const Context = ({ children }) => {
         toast.error(response.data.error)
       } else {
 
-        console.log(response.data)
-
-        setUser(response.data[0])
+        // Using JSON.stringify to stop error [object object]
+        setUser(JSON.stringify(response.data[0]))
         axios.defaults.headers.common["Authorization"] = `Bearer ${response.data[0].token}`
         sessionStorage.setItem('@Auth:token', response.data[0].token)
         sessionStorage.setItem('@Auth:user', JSON.stringify(response.data[0]))
@@ -52,11 +51,9 @@ export const Context = ({ children }) => {
         const tasks = response.data[0].tasks
         setTasks(tasks)
 
-        console.log(response.data.user)
         navigate('/taskview')
 
         setTheme(response.data.theme)
-        console.log(theme)
       }
 
       // Caso der algum erro

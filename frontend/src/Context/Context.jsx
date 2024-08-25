@@ -72,34 +72,36 @@ export const Context = ({ children }) => {
 
   //Usando o useEffect para manter o usuário logado, juntamente com as tarefas desse usuário
   useEffect(() => {
-    // Usando uma função assíncrona para receber os dados da requisição
-    const fetchData = async (req, res) => {
-      try {
-        const dataResponse = await axios.get(`http://localhost:2000/tasks/${user}`, {
-          headers: { 'Content-Type': 'application/json' }
-        })
+    if (user != null) {
+      // Usando uma função assíncrona para receber os dados da requisição
+      const fetchData = async (req, res) => {
+        try {
+          const dataResponse = await axios.get(`http://localhost:2000/tasks/${user}`, {
+            headers: { 'Content-Type': 'application/json' }
+          })
 
-        // Tarefas encontradas
-        const TasksFound = dataResponse.data[0].tasks
-        setTasks(TasksFound)
+          // Tarefas encontradas
+          const TasksFound = dataResponse.data[0].tasks
+          setTasks(TasksFound)
 
-        // Encontrando o nome do usuário
-        const userFound = dataResponse.data
-        setUser(userFound)
+          // Encontrando o nome do usuário
+          const userFound = dataResponse.data
+          setUser(userFound)
 
-        // Atualizando o tema 
-        const themeFound = dataResponse.data[0].theme
-        setTheme(themeFound)
-        // using this condition to manipulate the theme button
-        if (themeFound === 'dark') {
-          setIsChecked(true)
+          // Atualizando o tema 
+          const themeFound = dataResponse.data[0].theme
+          setTheme(themeFound)
+          // using this condition to manipulate the theme button
+          if (themeFound === 'dark') {
+            setIsChecked(true)
+          }
+        } catch (error) {
+          console.error(error)
         }
-      } catch (error) {
-        console.error(error)
       }
-    }
 
-    fetchData()
+      fetchData()
+    }
   }, [])
 
   const addTask = async (e, novaTask) => {

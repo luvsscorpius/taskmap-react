@@ -1,3 +1,11 @@
+## [1.30.6](https://github.com/luvsscorpius/taskmap-react/compare/v1.30.5...v1.30.6) (2024-08-25)
+
+
+### Bug Fixes
+
+* **backend login:** using spread operator to send token with the user info ([68d830c](https://github.com/luvsscorpius/taskmap-react/commit/68d830c19ed9a4087b0ded9ecfa2a843ac093a2a))
+* **frontend:** using json.stringify to stop error [object object] ([231df64](https://github.com/luvsscorpius/taskmap-react/commit/231df64ecf27726293a9e87ab241a147cf177236))
+
 ## [1.30.5](https://github.com/luvsscorpius/taskmap-react/compare/v1.30.4...v1.30.5) (2024-08-24)
 
 

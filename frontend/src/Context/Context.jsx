@@ -8,6 +8,7 @@ import { GlobalStyle } from '../Pages/Home/Styles'
 import { Icon } from 'react-icons-kit';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye'
+import { jwtDecode } from 'jwt-decode'
 
 export const TaskContext = createContext(null)
 
@@ -240,6 +241,45 @@ export const Context = ({ children }) => {
       }
     }
   }
+
+  // Logout user after token expired
+
+  // Function to logout user
+  const logoutUser = () => {
+    // Removing token and user from session storage
+    sessionStorage.removeItem('@Auth:token');
+    sessionStorage.removeItem('@Auth:user');
+    axios.defaults.headers.common["Authorization"] = '';
+    navigate('/');
+    toast.info('Você foi desconectado');
+  };
+
+  // Função para checar se o token foi expirado
+  const checkTokenExpiry = () => {
+    const token = sessionStorage.getItem("@Auth:token")
+
+    if (token) {
+      const decoded = jwtDecode(token)
+      const currentTime = Date.now() / 1000 // Tempo em segundos
+
+      if (decoded.exp < currentTime) {
+        console.log('Token expirado, deslogando...')
+        logoutUser()
+      }
+    }
+  }
+
+  // Usando o useEffect para checar sempre se o token esta expirado ou não
+  useEffect(() => {
+    // Chamando a função para verificar sempre que o componente é montado
+    checkTokenExpiry()
+
+    // Verifica a expiração a cada 1 minuto
+    const intervalId = setInterval(checkTokenExpiry, 60000)
+
+    // Limpando o intervalo assim que o componente é montado
+    return () => clearInterval(intervalId)
+  })
 
   const contextValue = { addUser, setEmail, setPassword, handleLogin, user, setUser, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType, deleteTask, updateTheme, isChecked, signed: !!user, email, password }
 

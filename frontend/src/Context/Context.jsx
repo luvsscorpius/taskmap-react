@@ -41,11 +41,15 @@ export const Context = ({ children }) => {
         toast.error(response.data.error)
       } else {
 
+        const token = response.data[0].token
+
         // Using JSON.stringify to stop error [object object]
         setUser(JSON.stringify(response.data[0]))
-        axios.defaults.headers.common["Authorization"] = `Bearer ${response.data[0].token}`
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`
         sessionStorage.setItem('@Auth:token', response.data[0].token)
         sessionStorage.setItem('@Auth:user', JSON.stringify(response.data[0]))
+
+        console.log(axios.defaults.headers.common["Authorization"])
 
         sessionStorage.setItem('tasks', JSON.stringify(response.data[0].tasks))
         const tasks = response.data[0].tasks
@@ -73,9 +77,16 @@ export const Context = ({ children }) => {
   //Usando o useEffect para manter o usuário logado, juntamente com as tarefas desse usuário
   useEffect(() => {
     if (user != null) {
+
       // Usando uma função assíncrona para receber os dados da requisição
       const fetchData = async (req, res) => {
         try {
+
+          const token = sessionStorage.getItem('@Auth:token')
+          if (token) {
+            axios.defaults.headers.common["Authorization"] = `Bearer ${token}`
+          }
+
           const dataResponse = await axios.get(`http://localhost:2000/tasks/${user}`, {
             headers: { 'Content-Type': 'application/json' }
           })

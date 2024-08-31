@@ -1,3 +1,11 @@
+# [1.33.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.32.0...v1.33.0) (2024-08-31)
+
+
+### Features
+
+* **frontend header:** creating a new component (header) ([19e1c13](https://github.com/luvsscorpius/taskmap-react/commit/19e1c137866bf8202afb56d800267a73906101ec))
+* **header:** importing logoutUser for logging out user when clicked the button ([2eaa50e](https://github.com/luvsscorpius/taskmap-react/commit/2eaa50e7c715f3d61d64315a140cdc5c33d7c788))
+
 # [1.32.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.31.0...v1.32.0) (2024-08-25)
 
 

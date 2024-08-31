@@ -5,6 +5,7 @@ import { Trash, Pencil, CaretLeft, CaretRight } from 'phosphor-react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import ReactPaginate from 'react-paginate'
+import { Header, Navbar } from '../../Components/Header/Header'
 
 export const Taskview = () => {
   const { user, addTask, tasks, setTasks, deleteTask } = useContext(TaskContext)
@@ -120,6 +121,9 @@ export const Taskview = () => {
   }
 
   return (
+    <>
+    <Header/>
+
     <T.component>
       <T.contents>
         <T.title> <h2>TODO LIST</h2>
@@ -163,5 +167,6 @@ export const Taskview = () => {
         />
       </T.contents>
     </T.component>
+    </>
   )
 }

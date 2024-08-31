@@ -10,6 +10,7 @@ export const lightTheme = {
         taskinfo: '#fff',
         btnColor: '#263169',
         inputColor: '#263169',
+        headerFontColor: '#fff',
     }
 }
 
@@ -24,6 +25,7 @@ export const darkTheme = {
         content: '#121212',
         taskinfo: '#263169',
         btnColor: '#263169',
-        inputColor: '#ccc'
+        inputColor: '#ccc',
+        headerFontColor: '#fff',
     }
 }

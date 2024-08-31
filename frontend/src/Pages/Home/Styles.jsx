@@ -13,6 +13,17 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${(props) => props.theme.colors.bgcolor};
         transition: all 0.25s linear;
     }
+
+    @media (max-width: 768px) {
+     .toast-container {
+        .Toastify__toast {
+            width: 90%;
+            margin: 0 auto;
+            border-radius: 5px;
+        }
+    }
+}
+
 `
 
 export const component = styled.div`

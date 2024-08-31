@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <ToastContainer autoClose={3000} />
+      <ToastContainer autoClose={3000} className="toast-container" />
       <Router>
         <Context>
           <Routes>

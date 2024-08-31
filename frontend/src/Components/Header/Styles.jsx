@@ -5,6 +5,7 @@ export const Header = styled.header`
     height: 50px;
     display: flex;
     flex-direction: row;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
 `
 
 export const logoContent = styled.div`

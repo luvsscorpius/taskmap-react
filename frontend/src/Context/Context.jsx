@@ -281,7 +281,7 @@ export const Context = ({ children }) => {
     return () => clearInterval(intervalId)
   })
 
-  const contextValue = { addUser, setEmail, setPassword, handleLogin, user, setUser, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType, deleteTask, updateTheme, isChecked, signed: !!user, email, password }
+  const contextValue = { addUser, setEmail, setPassword, handleLogin, user, setUser, addTask, tasks, setTasks, theme, setTheme, Icon, icon, setIcon, eyeOff, eye, type, setType, deleteTask, updateTheme, isChecked, signed: !!user, email, password, logoutUser }
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>

@@ -1,3 +1,10 @@
+# [1.34.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.33.0...v1.34.0) (2024-09-01)
+
+
+### Features
+
+* **frontend:** changing endpoints ([f02bdfa](https://github.com/luvsscorpius/taskmap-react/commit/f02bdfa94d12eee8e5d7bcb9bf075f77a566f4e0))
+
 # [1.33.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.32.0...v1.33.0) (2024-08-31)
 
 

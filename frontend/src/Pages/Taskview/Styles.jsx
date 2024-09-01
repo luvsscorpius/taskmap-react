@@ -273,6 +273,10 @@ export const taskBtn = styled.div`
         color: ${(props) => props.theme.colors.fontcolor};
     }
 
+    button:hover {
+        opacity: 0.8;
+    }
+
     @media (max-width: 700px) {
         button {
             width: 50%;

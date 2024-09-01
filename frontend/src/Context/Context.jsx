@@ -36,7 +36,7 @@ export const Context = ({ children }) => {
 
     // Fazer a chamada da api do backend 
     try {
-      const response = await axios.post("http://localhost:2000/login", ({ email, password }))
+      const response = await axios.post("https://taskmap-react-daji.vercel.app/login", ({ email, password }))
 
       if (response.data.error) {
         toast.error(response.data.error)
@@ -88,7 +88,7 @@ export const Context = ({ children }) => {
             axios.defaults.headers.common["Authorization"] = `Bearer ${token}`
           }
 
-          const dataResponse = await axios.get(`http://localhost:2000/tasks/${user}`, {
+          const dataResponse = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${user}`, {
             headers: { 'Content-Type': 'application/json' }
           })
 
@@ -120,7 +120,7 @@ export const Context = ({ children }) => {
     e.preventDefault()
 
     try {
-      await axios.put(`http://localhost:2000/addTask/${user._id === undefined ? user[0]._id : user._id}`, novaTask, {
+      await axios.put(`https://taskmap-react-daji.vercel.app/addTask/${user._id === undefined ? user[0]._id : user._id}`, novaTask, {
         headers: { 'Content-Type': 'application/json' }
       })
         .then(res => {
@@ -160,7 +160,7 @@ export const Context = ({ children }) => {
       const user = { name: nome, email: email, password: senha, theme: theme, tasks: [] }
 
       try {
-        await axios.post(`http://localhost:2000/createuser`, JSON.stringify(user), {
+        await axios.post(`https://taskmap-react-daji.vercel.app/createuser`, JSON.stringify(user), {
           headers: { 'Content-Type': 'application/json' }
         })
         toast.success('Usuário cadastrado com sucesso', {
@@ -186,7 +186,7 @@ export const Context = ({ children }) => {
     }
 
     try {
-      await axios.delete(`http://localhost:2000/deleteTask/${JSON.stringify(userInfo)}`, {
+      await axios.delete(`https://taskmap-react-daji.vercel.app/deleteTask/${JSON.stringify(userInfo)}`, {
         headers: { 'Content-Type': 'application/json' }
       })
         .then(res => {
@@ -222,7 +222,7 @@ export const Context = ({ children }) => {
     } else {
       try {
         const userInfo = user[0] || user
-        await axios.put(`http://localhost:2000/updateTheme/${user._id === undefined ? user[0]._id : user._id}`, user === undefined ? userInfo : user, {
+        await axios.put(`https://taskmap-react-daji.vercel.app/updateTheme/${user._id === undefined ? user[0]._id : user._id}`, user === undefined ? userInfo : user, {
           headers: { 'Content-Type': 'application/json' }
         })
           .then(res => {

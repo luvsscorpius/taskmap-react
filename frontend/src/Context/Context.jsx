@@ -160,7 +160,7 @@ export const Context = ({ children }) => {
       const user = { name: nome, email: email, password: senha, theme: theme, tasks: [] }
 
       try {
-        await axios.post(`https://taskmap-react-daji.vercel.app/createuser`, JSON.stringify(user), {
+        await axios.post(`https://taskmap-react.vercel.app/createUser`, JSON.stringify(user), {
           headers: { 'Content-Type': 'application/json' }
         })
         toast.success('Usuário cadastrado com sucesso', {

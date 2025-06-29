@@ -1,3 +1,10 @@
+## [1.34.1](https://github.com/luvsscorpius/taskmap-react/compare/v1.34.0...v1.34.1) (2025-06-29)
+
+
+### Bug Fixes
+
+* **backend:** removing auth from createUser bc new users dont have a token yet ([6482cbd](https://github.com/luvsscorpius/taskmap-react/commit/6482cbdeefc6e4cdeccf8d126ac6d447309f84ee))
+
 # [1.34.0](https://github.com/luvsscorpius/taskmap-react/compare/v1.33.0...v1.34.0) (2024-09-01)
 
 

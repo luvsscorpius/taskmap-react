@@ -1,3 +1,10 @@
+## [1.34.2](https://github.com/luvsscorpius/taskmap-react/compare/v1.34.1...v1.34.2) (2025-06-29)
+
+
+### Bug Fixes
+
+* **frontend:** updating endpoint ([9774234](https://github.com/luvsscorpius/taskmap-react/commit/97742346fc9774c0fe1617b158ead1d82705b3ba))
+
 ## [1.34.1](https://github.com/luvsscorpius/taskmap-react/compare/v1.34.0...v1.34.1) (2025-06-29)
 
 

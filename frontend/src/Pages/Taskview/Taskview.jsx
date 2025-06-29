@@ -34,7 +34,7 @@ export const Taskview = () => {
       locatedIndex.isChecked = !isChecked
 
       try {
-        await axios.put(`https://taskmap-react-daji.vercel.app/updateTasks/${user._id === undefined ? user[0]._id : user._id}`, locatedIndex, {
+        await axios.put(`https://taskmap-react.vercel.app/updateTasks/${user._id === undefined ? user[0]._id : user._id}`, locatedIndex, {
           headers: { 'Content-Type': 'application/json' }
         });
 

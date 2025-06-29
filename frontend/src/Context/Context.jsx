@@ -36,7 +36,7 @@ export const Context = ({ children }) => {
 
     // Fazer a chamada da api do backend 
     try {
-      const response = await axios.post("https://taskmap-react-daji.vercel.app/login", ({ email, password }))
+      const response = await axios.post("https://taskmap-react.vercel.app/login", ({ email, password }))
 
       if (response.data.error) {
         toast.error(response.data.error)
@@ -88,7 +88,7 @@ export const Context = ({ children }) => {
             axios.defaults.headers.common["Authorization"] = `Bearer ${token}`
           }
 
-          const dataResponse = await axios.get(`https://taskmap-react-daji.vercel.app/tasks/${user}`, {
+          const dataResponse = await axios.get(`https://taskmap-react.vercel.app/tasks/${user}`, {
             headers: { 'Content-Type': 'application/json' }
           })
 
@@ -120,7 +120,7 @@ export const Context = ({ children }) => {
     e.preventDefault()
 
     try {
-      await axios.put(`https://taskmap-react-daji.vercel.app/addTask/${user._id === undefined ? user[0]._id : user._id}`, novaTask, {
+      await axios.put(`https://taskmap-react.vercel.app/addTask/${user._id === undefined ? user[0]._id : user._id}`, novaTask, {
         headers: { 'Content-Type': 'application/json' }
       })
         .then(res => {
@@ -186,7 +186,7 @@ export const Context = ({ children }) => {
     }
 
     try {
-      await axios.delete(`https://taskmap-react-daji.vercel.app/deleteTask/${JSON.stringify(userInfo)}`, {
+      await axios.delete(`https://taskmap-react.vercel.app/deleteTask/${JSON.stringify(userInfo)}`, {
         headers: { 'Content-Type': 'application/json' }
       })
         .then(res => {
@@ -222,7 +222,7 @@ export const Context = ({ children }) => {
     } else {
       try {
         const userInfo = user[0] || user
-        await axios.put(`https://taskmap-react-daji.vercel.app/updateTheme/${user._id === undefined ? user[0]._id : user._id}`, user === undefined ? userInfo : user, {
+        await axios.put(`https://taskmap-react.vercel.app/updateTheme/${user._id === undefined ? user[0]._id : user._id}`, user === undefined ? userInfo : user, {
           headers: { 'Content-Type': 'application/json' }
         })
           .then(res => {
